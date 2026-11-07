@@ -88,9 +88,9 @@ func encodeSlabBlock(block world.Block, double bool) (id string, suffix string) 
 		return "mud_brick", suffix
 	case NetherBricks:
 		if block.Type == RedNetherBricks() {
-			return "nether_brick", suffix
+			return "red_nether_brick", suffix
 		}
-		return "red_nether_brick", suffix
+		return "nether_brick", suffix
 	case Planks:
 		return block.Wood.String(), suffix
 	case PolishedBlackstoneBrick:
