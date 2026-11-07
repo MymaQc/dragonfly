@@ -39,21 +39,21 @@ func (h *ItemStackRequestHandler) handleSmithing(a *protocol.CraftRecipeStackReq
 		Container: protocol.FullContainerName{ContainerID: protocol.ContainerSmithingTableInput},
 		Slot:      smithingInputSlot,
 	}, s, tx)
-	if !matchingStacks(input, expectedInputs[0]) {
+	if input.Empty() || !matchingStacks(input, expectedInputs[0]) {
 		return fmt.Errorf("input item is not the same as expected input")
 	}
 	material, _ := h.itemInSlot(protocol.StackRequestSlotInfo{
 		Container: protocol.FullContainerName{ContainerID: protocol.ContainerSmithingTableMaterial},
 		Slot:      smithingMaterialSlot,
 	}, s, tx)
-	if !matchingStacks(material, expectedInputs[1]) {
+	if material.Empty() || !matchingStacks(material, expectedInputs[1]) {
 		return fmt.Errorf("material item is not the same as expected material")
 	}
 	template, _ := h.itemInSlot(protocol.StackRequestSlotInfo{
 		Container: protocol.FullContainerName{ContainerID: protocol.ContainerSmithingTableTemplate},
 		Slot:      smithingTemplateSlot,
 	}, s, tx)
-	if !matchingStacks(template, expectedInputs[2]) {
+	if template.Empty() || !matchingStacks(template, expectedInputs[2]) {
 		return fmt.Errorf("template item is not the same as expected template")
 	}
 
