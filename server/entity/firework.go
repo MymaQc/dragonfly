@@ -47,9 +47,15 @@ func (fireworkType) EncodeEntity() string        { return "minecraft:fireworks_r
 func (fireworkType) BBox(world.Entity) cube.BBox { return cube.BBox{} }
 
 func (fireworkType) DecodeNBT(m map[string]any, data *world.EntityData) {
+	firework, ok := item.MapNBT(m, "Item").Item().(item.Firework)
+	if !ok {
+		// The saved Item is not a firework. Keep a default firework rather than
+		// panicking on the type assertion while reading the entity.
+		firework = item.Firework{}
+	}
 	conf := fireworkConf
-	conf.Firework = item.MapNBT(m, "Item").Item().(item.Firework)
-	conf.ExistenceDuration = conf.Firework.RandomisedDuration()
+	conf.Firework = firework
+	conf.ExistenceDuration = firework.RandomisedDuration()
 
 	data.Data = conf.New()
 }
