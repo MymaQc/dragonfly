@@ -105,6 +105,9 @@ func decodeSubChunk(buf *bytes.Buffer, c *Chunk, index *byte, e Encoding) (*SubC
 		if err != nil {
 			return nil, err
 		}
+		if storage == nil {
+			return nil, fmt.Errorf("block storage pointed to the previous storage, which blocks do not support")
+		}
 		sub.storages = append(sub.storages, storage)
 	case 8, 9:
 		// Version 8 allows up to 256 layers for one sub chunk.
@@ -127,6 +130,9 @@ func decodeSubChunk(buf *bytes.Buffer, c *Chunk, index *byte, e Encoding) (*SubC
 			sub.storages[i], err = decodePalettedStorage(buf, e, BlockPaletteEncoding{Blocks: c.br, legacy: &c.legacyStates})
 			if err != nil {
 				return nil, err
+			}
+			if sub.storages[i] == nil {
+				return nil, fmt.Errorf("block storage pointed to the previous storage, which blocks do not support")
 			}
 		}
 	}
@@ -174,8 +180,8 @@ func decodePalettedStorage(buf *bytes.Buffer, e Encoding, pe paletteEncoding) (*
 	}
 
 	size := paletteSize(blockSize)
-	if size > 32 {
-		return nil, fmt.Errorf("cannot read paletted storage (size=%v) %T: size too large", blockSize, pe)
+	if !size.valid() {
+		return nil, fmt.Errorf("cannot read paletted storage (size=%v) %T: invalid palette size", blockSize, pe)
 	}
 	uint32Count := size.uint32s()
 
@@ -191,5 +197,12 @@ func decodePalettedStorage(buf *bytes.Buffer, e Encoding, pe paletteEncoding) (*
 		uint32s[i] = uint32(data[i*4]) | uint32(data[i*4+1])<<8 | uint32(data[i*4+2])<<16 | uint32(data[i*4+3])<<24
 	}
 	p, err := e.decodePalette(buf, paletteSize(blockSize), pe)
-	return newPalettedStorage(uint32s, p), err
+	if err != nil {
+		return nil, err
+	}
+	storage := newPalettedStorage(uint32s, p)
+	if !storage.withinPalette() {
+		return nil, fmt.Errorf("cannot read paletted storage %T: index points outside the palette", pe)
+	}
+	return storage, nil
 }

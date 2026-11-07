@@ -75,6 +75,27 @@ func (storage *PalettedStorage) At(x, y, z byte) uint32 {
 	return storage.palette.Value(storage.paletteIndex(x&15, y&15, z&15))
 }
 
+// withinPalette reports whether every index stored points to an entry present
+// in the Palette. It is used after decoding to reject data whose indices would
+// otherwise run past the Palette on the first block read.
+func (storage *PalettedStorage) withinPalette() bool {
+	n := uint16(len(storage.palette.values))
+	if storage.indexMask < uint32(n) {
+		// No representable index can reach n, so all indices are within range.
+		return true
+	}
+	for x := byte(0); x < 16; x++ {
+		for z := byte(0); z < 16; z++ {
+			for y := byte(0); y < 16; y++ {
+				if storage.paletteIndex(x, y, z) >= n {
+					return false
+				}
+			}
+		}
+	}
+	return true
+}
+
 // PaletteIndex returns the index in the Palette that the value at a given x, y and z points to. It is a cheaper
 // alternative to At when scanning a storage for specific palette entries, as it does not dereference the Palette.
 func (storage *PalettedStorage) PaletteIndex(x, y, z byte) uint16 {
