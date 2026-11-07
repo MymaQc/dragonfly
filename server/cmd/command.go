@@ -161,6 +161,12 @@ func (cmd Command) Execute(args string, source Source, tx *world.Tx) {
 			leastArgsLeft = line
 		}
 	}
+	if leastErroneous == nil {
+		// The command has no Runnable at all, so it cannot be run by any
+		// source. Without this, the nil error would be sent as "<nil>".
+		output.Error(MessageUnknown.F(cmd.name))
+		return
+	}
 	// No working Runnable found for the arguments passed. We add the most
 	// applicable error to the output and stop there.
 	if leastArgsLeft != nil {
