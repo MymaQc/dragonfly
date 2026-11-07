@@ -77,9 +77,9 @@ func encodeStairsBlock(block world.Block) string {
 		return "mud_brick"
 	case NetherBricks:
 		if block.Type == RedNetherBricks() {
-			return "nether_brick"
+			return "red_nether_brick"
 		}
-		return "red_nether_brick"
+		return "nether_brick"
 	case Planks:
 		return block.Wood.String()
 	case PolishedBlackstoneBrick:
