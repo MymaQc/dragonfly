@@ -77,7 +77,7 @@ func (c Cactus) EntityInside(_ cube.Pos, _ *world.Tx, e world.Entity) {
 
 // BreakInfo ...
 func (c Cactus) BreakInfo() BreakInfo {
-	return newBreakInfo(0.4, alwaysHarvestable, nothingEffective, oneOf(c))
+	return newBreakInfo(0.4, alwaysHarvestable, nothingEffective, oneOf(Cactus{}))
 }
 
 // CompostChance ...

@@ -25,7 +25,7 @@ func (d DoubleFlower) FlammabilityInfo() FlammabilityInfo {
 
 // BoneMeal ...
 func (d DoubleFlower) BoneMeal(pos cube.Pos, tx *world.Tx) item.BoneMealResult {
-	dropItem(tx, item.NewStack(d, 1), pos.Vec3Centre())
+	dropItem(tx, item.NewStack(DoubleFlower{Type: d.Type}, 1), pos.Vec3Centre())
 	return item.BoneMealResultSmall
 }
 
@@ -56,7 +56,7 @@ func (d DoubleFlower) UseOnBlock(pos cube.Pos, face cube.Face, _ mgl64.Vec3, tx 
 
 // BreakInfo ...
 func (d DoubleFlower) BreakInfo() BreakInfo {
-	return newBreakInfo(0, alwaysHarvestable, nothingEffective, oneOf(d))
+	return newBreakInfo(0, alwaysHarvestable, nothingEffective, oneOf(DoubleFlower{Type: d.Type}))
 }
 
 // CompostChance ...

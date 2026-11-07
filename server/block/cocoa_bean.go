@@ -90,9 +90,9 @@ func (c CocoaBean) RandomTick(pos cube.Pos, tx *world.Tx, r *rand.Rand) {
 func (c CocoaBean) BreakInfo() BreakInfo {
 	return newBreakInfo(0.2, alwaysHarvestable, axeEffective, func(item.Tool, []item.Enchantment) []item.Stack {
 		if c.Age == 2 {
-			return []item.Stack{item.NewStack(c, rand.IntN(2)+2)}
+			return []item.Stack{item.NewStack(CocoaBean{}, rand.IntN(2)+2)}
 		}
-		return []item.Stack{item.NewStack(c, 1)}
+		return []item.Stack{item.NewStack(CocoaBean{}, 1)}
 	}).withBlastResistance(3)
 }
 

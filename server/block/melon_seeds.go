@@ -89,7 +89,7 @@ func (m MelonSeeds) UseOnBlock(pos cube.Pos, face cube.Face, _ mgl64.Vec3, tx *w
 
 // BreakInfo ...
 func (m MelonSeeds) BreakInfo() BreakInfo {
-	return newBreakInfo(0, alwaysHarvestable, nothingEffective, oneOf(m))
+	return newBreakInfo(0, alwaysHarvestable, nothingEffective, oneOf(MelonSeeds{}))
 }
 
 // CompostChance ...

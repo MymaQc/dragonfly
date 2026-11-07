@@ -46,7 +46,7 @@ func (k Kelp) BoneMeal(pos cube.Pos, tx *world.Tx) item.BoneMealResult {
 
 // BreakInfo ...
 func (k Kelp) BreakInfo() BreakInfo {
-	return newBreakInfo(0, alwaysHarvestable, nothingEffective, oneOf(k))
+	return newBreakInfo(0, alwaysHarvestable, nothingEffective, oneOf(Kelp{}))
 }
 
 // CompostChance ...
