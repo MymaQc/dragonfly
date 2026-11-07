@@ -162,8 +162,23 @@ func (l *Loader) Close(tx *Tx) {
 	l.mu.Lock()
 	defer l.mu.Unlock()
 
-	for pos := range l.loaded {
-		tx.World().removeViewer(tx, pos, l)
+	if tx.World() == l.w {
+		for pos := range l.loaded {
+			l.w.removeViewer(tx, pos, l)
+		}
+		l.viewer = nil
+	} else {
+		// The transaction is for a different world than the loader's, as happens
+		// when a session is closed while changing worlds. Remove the loader from
+		// its own world's chunks through that world, so another world's
+		// transaction is never used. The viewer is kept until this runs, as
+		// removeViewer hides the chunk's entities through it.
+		loaded, w := maps.Clone(l.loaded), l.w
+		w.exec(func(tx *Tx) {
+			for pos := range loaded {
+				w.removeViewer(tx, pos, l)
+			}
+		})
 	}
 	l.loaded = map[ChunkPos]*Column{}
 	clear(l.pending)
@@ -173,7 +188,6 @@ func (l *Loader) Close(tx *Tx) {
 	l.w.viewerMu.Unlock()
 
 	l.closed = true
-	l.viewer = nil
 }
 
 // world sets the loader's world, adds them to the world's viewer list, then starts populating the load queue.
