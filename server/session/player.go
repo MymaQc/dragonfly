@@ -427,6 +427,9 @@ func (s *Session) SendFood(food int, saturation, exhaustion float64) {
 // SendDialogue sends an NPC dialogue to the client of the connection. The Submit method of the dialogue is
 // called when the client interacts with a button in the dialogue.
 func (s *Session) SendDialogue(d dialogue.Dialogue, e world.Entity) {
+	if s == Nop {
+		return
+	}
 	b, _ := json.Marshal(d)
 
 	h := s.handlers[packet.IDNPCRequest].(*NPCRequestHandler)
@@ -456,6 +459,9 @@ func (s *Session) SendDialogue(d dialogue.Dialogue, e world.Entity) {
 }
 
 func (s *Session) CloseDialogue() {
+	if s == Nop {
+		return
+	}
 	h := s.handlers[packet.IDNPCRequest].(*NPCRequestHandler)
 	if h.entityRuntimeID == 0 {
 		return
@@ -471,6 +477,9 @@ func (s *Session) CloseDialogue() {
 // SendForm sends a form to the client of the connection. The Submit method of the form is called when the
 // client submits the form.
 func (s *Session) SendForm(f form.Form) {
+	if s == Nop {
+		return
+	}
 	b, _ := json.Marshal(f)
 
 	h := s.handlers[packet.IDModalFormResponse].(*ModalFormResponseHandler)
@@ -838,6 +847,9 @@ func (s *Session) ShowHudElement(e hud.Element) {
 // HideHudElement hides a HUD element from the player if it is not already hidden. If the element is waiting
 // to be shown, it will be removed from the updates and remain hidden from the player.
 func (s *Session) HideHudElement(e hud.Element) {
+	if s == Nop {
+		return
+	}
 	s.hudMu.Lock()
 	defer s.hudMu.Unlock()
 
