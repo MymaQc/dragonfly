@@ -35,6 +35,15 @@ still open, shift-clicks the diamonds out of the chest slot and closes it.
 
 ## Files
 
+- `before.mp4` (0.4 MB, 12.1 s, 121 frames at 10 fps, 1280x792), `after.mp4` (0.4 MB, 11.0 s, 110 frames at 10 fps,
+  1280x792): H.264, yuv420p, real-time video of /away 4, the chest opened, the move to the second overworld with the
+  window open, the shift-click out of it (before; after, the window closes), then looking where the chest was,
+  recorded in a later run of the same scenario than the PNGs. Built from frames captured continuously through
+  Cinnabar's own screenshot tool during the run (44 frames at 3.73 per second before, 41 at 3.83 after); each frame
+  is shown for as long as it lasted, so playback speed is real time. A caption bar was added above the frames (the
+  Dragonfly commit, before or after, and the step being shown); the frames themselves are unedited.
+- `before.gif` (0.4 MB, 12.0 s, 48 frames at 4 fps, 640x396), `after.gif` (0.4 MB, 11.0 s, 44 frames at 4 fps,
+  640x396): the same, scaled down for display in the PR.
 - `*-chest-open-overworld.png`: the chest window in the main overworld, 64 diamonds.
 - `before-after-move-to-second-world.png`: on 106fdc28, 2.5 s after the player is in the second world, the chest
   window is still open and still shows the diamonds. `after-after-move-to-second-world.png`: with the fix, it closed.
@@ -50,7 +59,7 @@ Not covered by the client test: a request handled between the world switch and t
 it reliably. The removal of the viewer in the old world is not observable through the public API (the viewer set of a
 chest is unexported).
 
-Note: branch `world-loader-foreign-tx-close` (D34) is in the same area of world changes; the two
+Note: the branch `world-loader-foreign-tx-close` (D34) is in the same area of world changes; the two
 branches were not tested together.
 
 Versions: Dragonfly 106fdc28, Cinnabar 7af298d1 (protocol 2225). Repo checks on the branch: all pass, see

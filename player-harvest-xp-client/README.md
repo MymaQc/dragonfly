@@ -18,6 +18,15 @@ server reports it broken, and looks at where it was.
 
 ## Files
 
+- `before.mp4` (0.6 MB, 17.2 s, 172 frames at 10 fps, 1280x792), `after.mp4` (0.6 MB, 13.4 s, 134 frames at 10 fps,
+  1280x792): H.264, yuv420p, real-time video of the stone pickaxe mining diamond ore, then the break (an experience
+  orb and the experience bar before; nothing after), recorded in a later run of the same scenario than the PNGs.
+  Built from frames captured continuously through Cinnabar's own screenshot tool during the run (48 frames at 2.84
+  per second before, 49 at 3.72 after); each frame is shown for as long as it lasted, so playback speed is real time.
+  A caption bar was added above the frames (the Dragonfly commit, before or after, and the step being shown); the
+  frames themselves are unedited.
+- `before.gif` (0.6 MB, 17.2 s, 69 frames at 4 fps, 640x396), `after.gif` (0.7 MB, 13.5 s, 54 frames at 4 fps,
+  640x396): the same, scaled down for display in the PR.
 - `before-ore-broken.png`, `after-ore-broken.png`: just after the ore broke. Before: a yellow experience orb in the
   gap and the experience bar above the hotbar partly filled. After: only breaking particles.
 - `*-ore-before.png`: the three ores before breaking.

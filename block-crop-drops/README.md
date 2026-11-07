@@ -37,6 +37,15 @@ a carrot on x 5 and nether wart on the soul sand at x 7, and looks at the field 
 
 ## Files
 
+- `before.mp4` (3.1 MB, 43.5 s, 435 frames at 10 fps, 1280x792), `after.mp4` (3.0 MB, 43.2 s, 432 frames at 10 fps,
+  1280x792): H.264, yuv420p, real-time video of the field, each crop broken by hand (drops going to the inventory),
+  then the seeds, carrot and nether wart planted (grown at once before, seedlings after), recorded in a later run of
+  the same scenario than the PNGs. Built from frames captured continuously through Cinnabar's own screenshot tool
+  during the run (154 frames at 3.56 per second before, 154 at 3.59 after); each frame is shown for as long as it
+  lasted, so playback speed is real time. A caption bar was added above the frames (the Dragonfly commit, before or
+  after, and the step being shown); the frames themselves are unedited.
+- `before.gif` (4.3 MB, 43.5 s, 174 frames at 4 fps, 640x396), `after.gif` (4.1 MB, 43.2 s, 173 frames at 4 fps,
+  640x396): the same, scaled down for display in the PR.
 - `before-field-replanted.png`: auto-pickup on 106fdc28; the wheat, carrots and nether wart just planted are fully
   grown.
 - `after-field-replanted.png`: auto-pickup with the fix; they are seedlings.

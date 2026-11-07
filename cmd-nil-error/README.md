@@ -31,6 +31,15 @@ source (`executeRunnable` returns `MessageUnknown`).
 
 ## Files
 
+- `before.mp4` (0.1 MB, 4.9 s, 49 frames at 10 fps, 1280x792), `after.mp4` (0.2 MB, 4.9 s, 49 frames at 10 fps,
+  1280x792): H.264, yuv420p, real-time video of /empty sent, and the server's answer in the chat (<nil> before, the
+  unknown command message after), recorded in a later run of the same scenario than the PNGs. Built from frames
+  captured continuously through Cinnabar's own screenshot tool during the run (18 frames at 3.83 per second before,
+  18 at 3.83 after); each frame is shown for as long as it lasted, so playback speed is real time. A caption bar was
+  added above the frames (the Dragonfly commit, before or after, and the step being shown); the frames themselves are
+  unedited.
+- `before.gif` (0.1 MB, 5.0 s, 20 frames at 4 fps, 640x396), `after.gif` (0.1 MB, 5.0 s, 20 frames at 4 fps,
+  640x396): the same, scaled down for display in the PR.
 - `before-empty-command-output.png`: the last chat line is `<nil>`.
 - `after-empty-command-output.png`: the unknown command message, in red.
 - `*-pick-outputs.png`, `*-npcs.png`: earlier part of the same run (`@p`, see `cmd-nearest-player`; not fixed on this

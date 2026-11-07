@@ -32,6 +32,14 @@ Earlier runs on 106fdc28 with the same setup: 3 / 15 / 2 (run 20261107-030203-cm
 
 ## Files
 
+- `before.mp4` (0.2 MB, 18.2 s, 182 frames at 10 fps, 1280x792), `after.mp4` (0.2 MB, 18.5 s, 185 frames at 10 fps,
+  1280x792): H.264, yuv420p, real-time video of the three NPCs, then /pick @p run 20 times, with each selected player
+  printed in the chat, recorded in a later run of the same scenario than the PNGs. Built from frames captured
+  continuously through Cinnabar's own screenshot tool during the run (68 frames at 3.81 per second before, 69 at 3.78
+  after); each frame is shown for as long as it lasted, so playback speed is real time. A caption bar was added above
+  the frames (the Dragonfly commit, before or after, and the step being shown); the frames themselves are unedited.
+- `before.gif` (0.3 MB, 18.2 s, 73 frames at 4 fps, 640x396), `after.gif` (0.3 MB, 18.5 s, 74 frames at 4 fps,
+  640x396): the same, scaled down for display in the PR.
 - `before-pick-outputs.png`: the chat after the 20 runs on 106fdc28 (last 10 lines): `Nearest` and `Cinnabar`
   alternate. `after-pick-outputs.png`: `Cinnabar` every time.
 - `*-npcs.png`: the three NPCs as the client sees them.

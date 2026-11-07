@@ -36,6 +36,15 @@ Same world folder for the three servers, survival, 127.0.0.1:19402, flat world, 
 
 ## Files
 
+- `before.mp4` (0.6 MB, 16.4 s, 164 frames at 10 fps, 1280x792), `after.mp4` (0.6 MB, 16.1 s, 161 frames at 10 fps,
+  1280x792): H.264, yuv420p, real-time video of server 2 (chest opened, 64 diamonds shift-clicked in, chest closed),
+  then, after the cut restart, server 3 (chest reopened: empty before, 64 diamonds after), recorded in a later run of
+  the same scenario than the PNGs. Built from frames captured continuously through Cinnabar's own screenshot tool
+  during the run (60 frames at 3.73 per second before, 59 at 3.73 after); each frame is shown for as long as it
+  lasted, so playback speed is real time; the time between segments is cut. A caption bar was added above the frames
+  (the Dragonfly commit, before or after, and the step being shown); the frames themselves are unedited.
+- `before.gif` (0.6 MB, 16.2 s, 65 frames at 4 fps, 640x396), `after.gif` (0.6 MB, 16.0 s, 64 frames at 4 fps,
+  640x396): the same, scaled down for display in the PR.
 - `before-server2-chest-filled.png`, `after-server2-chest-filled.png`: step 2, the chest window after the diamonds
   were put in (64 diamonds in the first chest slot).
 - `before-server3-chest-reopened.png`: step 3 on 106fdc28, the same chest after the restart, empty.

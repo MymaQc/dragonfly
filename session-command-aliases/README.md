@@ -40,6 +40,17 @@ client showed `/first <teleport|tp>` with the suggestions `teleport` and `tp` in
 
 ## Files
 
+- `before.mp4` (0.4 MB, 34.4 s, 344 frames at 10 fps, 1280x792), `after.mp4` (0.4 MB, 33.9 s, 339 frames at 10 fps,
+  1280x792): H.264, yuv420p, real-time video of four joins (cut between joins), each showing the suggestions for /
+  and for /first, recorded in a later run of the same scenario than the PNGs. Built from frames captured continuously
+  through Cinnabar's own screenshot tool during the run (128 frames at 3.76 per second before, 128 at 3.81 after);
+  each frame is shown for as long as it lasted, so playback speed is real time; the time between segments is cut. A
+  caption bar was added above the frames (the Dragonfly commit, before or after, and the step being shown); the
+  frames themselves are unedited.
+- `before.gif` (0.6 MB, 34.2 s, 137 frames at 4 fps, 640x396), `after.gif` (0.6 MB, 34.0 s, 136 frames at 4 fps,
+  640x396): the same, scaled down for display in the PR. In the run the videos come from, join 1 before the fix has
+  no `/c` in its suggestions for `/`; joins 2 to 4 happened to get a command order without the problem. After the
+  fix, all four joins suggest `/c`.
 - `before-join{1..4}-suggest-all.png`: suggestions for `/`; joins 1 and 2 have no `/c` (conf got tp's aliases).
 - `after-join{1..4}-suggest-all.png`: `/c` is suggested in every join.
 - `*-join{1..4}-suggest-first.png`: suggestions for `/first ` (`alpha`, `beta` in all eight captures).

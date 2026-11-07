@@ -1,8 +1,9 @@
 # D16: an effect removed while it acts comes back (client evidence for branch `entity-effect-tick-readd`)
 
-Verdict: **CONFIRMED** on unmodified upstream master 106fdc28. The fix is branch `entity-effect-tick-readd` (commit 3e792558, `server/entity: Do not re-add an effect removed during
-its own tick`); this folder is a client reproduction run against that commit unchanged. The code-level walk-through is
-in `../entity-effect-tick-readd/`.
+Verdict: **CONFIRMED** on unmodified upstream master 106fdc28. The fix branch `entity-effect-tick-readd` (commit
+3e792558, `server/entity: Do not re-add an effect removed during its own tick`) has its own evidence and PR text in
+`evidence/entity-effect-tick-readd/`; this folder only adds a client reproduction of it, run against that commit
+unchanged. No PR.md here.
 
 ## Cause
 
@@ -15,7 +16,7 @@ respawns with it and keeps taking damage, while the client was told the effect i
 
 Survival, 127.0.0.1:19402. The harness registers `/wither`, which gives its source wither IV for 60 s, and reports
 each second the player's health and effects (`status` events). Cinnabar joins, runs `/wither`, dies of it, presses
-Respawn on the death screen, and is watched for 15 s (30 frames, one each 0.5 s).
+Respawn on the death screen, and is watched for 15 s (20 s in the run the videos come from).
 
 ## Results
 
@@ -26,9 +27,15 @@ Respawn on the death screen, and is watched for 15 s (30 frames, one each 0.5 s)
 
 ## Files
 
-- `before.gif`, `after.gif`: the 15 s after respawning (30 captures of 320 px, 0.5 s apart). A black caption bar was
-  added above the frames; the frames themselves are unedited. Before: the hearts empty and the death screen comes
-  back. After: the hearts stay full.
+- `before.mp4` (2.3 MB, 44.8 s, 448 frames at 10 fps, 1280x792), `after.mp4` (1.4 MB, 43.5 s, 435 frames at 10 fps,
+  1280x792): H.264, yuv420p, real-time video of /wither, the death, Respawn, then 20 s after respawning (health falls
+  and the player dies again before; full health after), recorded in a later run of the same scenario than the PNGs.
+  Built from frames captured continuously through Cinnabar's own screenshot tool during the run (166 frames at 3.73
+  per second before, 161 at 3.72 after); each frame is shown for as long as it lasted, so playback speed is real
+  time. A caption bar was added above the frames (the Dragonfly commit, before or after, and the step being shown);
+  the frames themselves are unedited.
+- `before.gif` (7.0 MB, 44.8 s, 179 frames at 4 fps, 560x346), `after.gif` (4.9 MB, 43.5 s, 174 frames at 4 fps,
+  640x396): the same, scaled down for display in the PR.
 - `*-before.png` (joined), `*-dead.png` (death screen), `*-respawned.png`, `*-respawned-15s-later.png` (before: dead
   again; after: alive, full health).
 - `*-server.jsonl`: harness events (`wither-given`, `death`, `respawn`, `status` each second);
