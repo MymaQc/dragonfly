@@ -1,6 +1,7 @@
 package world
 
 import (
+	"math/rand/v2"
 	"time"
 
 	"github.com/df-mc/dragonfly/server/block/cube"
@@ -102,10 +103,13 @@ func (w weather) StopRaining() {
 	defer w.w.set.Unlock()
 
 	if w.w.set.Raining {
-		w.setRaining(false, time.Second*(time.Duration(w.w.r.IntN(8400)+600)))
+		// StopRaining may be called off the world's owning goroutine, so the next
+		// weather duration is drawn from the goroutine-safe global source rather
+		// than the World's own rand, which is used by the ticking goroutine.
+		w.setRaining(false, time.Second*(time.Duration(rand.IntN(8400)+600)))
 		if w.w.set.Thundering {
 			// Also reset thunder if it was previously thundering.
-			w.setThunder(false, time.Second*(time.Duration(w.w.r.IntN(8400)+600)))
+			w.setThunder(false, time.Second*(time.Duration(rand.IntN(8400)+600)))
 		}
 	}
 }
@@ -127,7 +131,10 @@ func (w weather) StopThundering() {
 	w.w.set.Lock()
 	defer w.w.set.Unlock()
 	if w.w.set.Thundering && w.w.set.Raining {
-		w.setThunder(false, time.Second*(time.Duration(w.w.r.IntN(8400)+600)))
+		// StopThundering may be called off the world's owning goroutine, so the
+		// next weather duration is drawn from the goroutine-safe global source
+		// rather than the World's own rand, which is used by the ticking goroutine.
+		w.setThunder(false, time.Second*(time.Duration(rand.IntN(8400)+600)))
 	}
 }
 
