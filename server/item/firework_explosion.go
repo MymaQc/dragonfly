@@ -33,9 +33,13 @@ func (f FireworkExplosion) EncodeNBT() map[string]any {
 
 // DecodeNBT ...
 func (f FireworkExplosion) DecodeNBT(data map[string]any) any {
-	f.Shape = FireworkShapes()[data["FireworkType"].(uint8)]
-	f.Twinkle = data["FireworkFlicker"].(uint8) == 1
-	f.Trail = data["FireworkTrail"].(uint8) == 1
+	if shape, ok := data["FireworkType"].(uint8); ok && int(shape) < len(FireworkShapes()) {
+		f.Shape = FireworkShapes()[shape]
+	}
+	flicker, _ := data["FireworkFlicker"].(uint8)
+	f.Twinkle = flicker == 1
+	trail, _ := data["FireworkTrail"].(uint8)
+	f.Trail = trail == 1
 
 	colours := data["FireworkColor"]
 	if diskColour, ok := colours.([1]uint8); ok {

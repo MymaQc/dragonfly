@@ -36,9 +36,15 @@ func (w WrittenBook) Page(page int) (string, bool) {
 // DecodeNBT ...
 func (w WrittenBook) DecodeNBT(data map[string]any) any {
 	if pages, ok := data["pages"].([]any); ok {
-		w.Pages = make([]string, len(pages))
-		for i, page := range pages {
-			w.Pages[i] = page.(map[string]any)["text"].(string)
+		for _, page := range pages {
+			pageData, ok := page.(map[string]any)
+			if !ok {
+				// A page that is not a compound is skipped rather than read.
+				continue
+			}
+			if text, ok := pageData["text"].(string); ok {
+				w.Pages = append(w.Pages, text)
+			}
 		}
 	}
 	w.Title, _ = data["title"].(string)
