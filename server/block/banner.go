@@ -106,11 +106,18 @@ func (b Banner) DecodeNBT(m map[string]any) any {
 		b.Colour = invertColourID(int16(nbtconv.Int32(m, "Base")))
 	}
 	b.Illager = nbtconv.Int32(m, "Type") == 1
-	if patterns := nbtconv.Slice(m, "Patterns"); patterns != nil {
-		b.Patterns = make([]BannerPatternLayer, len(patterns))
-		for i, p := range b.Patterns {
-			b.Patterns[i] = p.DecodeNBT(patterns[i].(map[string]any)).(BannerPatternLayer)
+	for _, p := range nbtconv.Slice(m, "Patterns") {
+		data, ok := p.(map[string]any)
+		if !ok {
+			// A layer that is not a compound is skipped rather than read.
+			continue
 		}
+		if _, ok := BannerPatternByID(nbtconv.String(data, "Pattern")); !ok {
+			// A layer with an unknown pattern is skipped rather than read.
+			continue
+		}
+		var layer BannerPatternLayer
+		b.Patterns = append(b.Patterns, layer.DecodeNBT(data).(BannerPatternLayer))
 	}
 	return b
 }
