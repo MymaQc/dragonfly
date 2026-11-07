@@ -12,7 +12,10 @@ import (
 func TraverseBlocks(start, end mgl64.Vec3, f func(pos cube.Pos) (con bool)) {
 	dir := end.Sub(start)
 	if mgl64.FloatEqual(dir.LenSqr(), 0) {
-		panic("start and end points are the same, giving a zero direction vector")
+		// A zero-length ray has no direction to step along. It covers only the
+		// block it starts in, so visit that block and return.
+		f(cube.PosFromVec3(start))
+		return
 	}
 	dir = dir.Normalize()
 
