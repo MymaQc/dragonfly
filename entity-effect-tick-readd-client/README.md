@@ -27,15 +27,17 @@ Respawn on the death screen, and is watched for 15 s (20 s in the run the videos
 
 ## Files
 
-- `before.mp4` (2.3 MB, 44.8 s, 448 frames at 10 fps, 1280x792), `after.mp4` (1.4 MB, 43.5 s, 435 frames at 10 fps,
+- `before.mp4` (5.4 MB, 43.8 s, 2626 frames at 60 fps, 1280x792), `after.mp4` (5.6 MB, 43.8 s, 2626 frames at 60 fps,
   1280x792): H.264, yuv420p, real-time video of /wither, the death, Respawn, then 20 s after respawning (health falls
   and the player dies again before; full health after), recorded in a later run of the same scenario than the PNGs.
-  Built from frames captured continuously through Cinnabar's own screenshot tool during the run (166 frames at 3.73
-  per second before, 161 at 3.72 after); each frame is shown for as long as it lasted, so playback speed is real
-  time. A caption bar was added above the frames (the Dragonfly commit, before or after, and the step being shown);
-  the frames themselves are unedited.
-- `before.gif` (7.0 MB, 44.8 s, 179 frames at 4 fps, 560x346), `after.gif` (4.9 MB, 43.5 s, 174 frames at 4 fps,
-  640x396): the same, scaled down for display in the PR.
+  Recorded by Cinnabar's own recorder (record_start with fps 60, fixed_clock false so that the game follows the wall
+  clock as the server does, audio off; hidden window), started before the action and stopped once the result is
+  visible. record_stop reported: before, 2626 frames recorded, 0 dropped, 0 filled; after, 2626 frames recorded, 0
+  dropped, 0 filled. Then, with ffmpeg only: a caption bar added above the picture (the Dragonfly commit, before or
+  after, and the step being shown), and a re-encode (H.264, yuv420p, faststart, same frame rate); the recorded
+  picture is not otherwise changed.
+- `before.gif` (7.2 MB, 43.8 s, 350 frames at 8 fps, 480x298), `after.gif` (5.1 MB, 43.8 s, 350 frames at 8 fps,
+  480x298): made from the MP4s with ffmpeg (palettegen/paletteuse), for display in the PR.
 - `*-before.png` (joined), `*-dead.png` (death screen), `*-respawned.png`, `*-respawned-15s-later.png` (before: dead
   again; after: alive, full health).
 - `*-server.jsonl`: harness events (`wither-given`, `death`, `respawn`, `status` each second);

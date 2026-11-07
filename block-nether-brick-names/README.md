@@ -42,15 +42,17 @@ are on the left, the normal ones on the right), then selects hotbar slot 1 (the 
 
 ## Files
 
-- `before.mp4` (0.4 MB, 13.1 s, 131 frames at 10 fps, 1280x792), `after.mp4` (0.4 MB, 13.2 s, 132 frames at 10 fps,
+- `before.mp4` (0.9 MB, 12.7 s, 762 frames at 60 fps, 1280x792), `after.mp4` (0.9 MB, 12.7 s, 762 frames at 60 fps,
   1280x792): H.264, yuv420p, real-time video of the row of slabs and stairs, then hotbar slot 2 (slab asked as red)
   and slot 1 (slab asked as normal) held, with the client's item name, recorded in a later run of the same scenario
-  than the PNGs. Built from frames captured continuously through Cinnabar's own screenshot tool during the run (47
-  frames at 3.66 per second before, 49 at 3.8 after); each frame is shown for as long as it lasted, so playback speed
-  is real time. A caption bar was added above the frames (the Dragonfly commit, before or after, and the step being
-  shown); the frames themselves are unedited.
-- `before.gif` (0.5 MB, 13.0 s, 52 frames at 4 fps, 640x396), `after.gif` (0.5 MB, 13.2 s, 53 frames at 4 fps,
-  640x396): the same, scaled down for display in the PR.
+  than the PNGs. Recorded by Cinnabar's own recorder (record_start with fps 60, fixed_clock false so that the game
+  follows the wall clock as the server does, audio off; hidden window), started before the action and stopped once
+  the result is visible. record_stop reported: before, 762 frames recorded, 0 dropped, 0 filled; after, 762 frames
+  recorded, 0 dropped, 0 filled. Then, with ffmpeg only: a caption bar added above the picture (the Dragonfly commit,
+  before or after, and the step being shown), and a re-encode (H.264, yuv420p, faststart, same frame rate); the
+  recorded picture is not otherwise changed.
+- `before.gif` (2.5 MB, 12.7 s, 254 frames at 20 fps, 640x396), `after.gif` (2.4 MB, 12.7 s, 254 frames at 20 fps,
+  640x396): made from the MP4s with ffmpeg (palettegen/paletteuse), for display in the PR.
 - `before-row.png`: on 106fdc28, the slab and stairs asked as red (left) are dark in front of a red block; those asked
   as normal (right) are red in front of a dark block.
 - `after-row.png`: with the fix, each slab and stairs has the colour of the full block behind it.

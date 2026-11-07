@@ -18,15 +18,17 @@ server reports it broken, and looks at where it was.
 
 ## Files
 
-- `before.mp4` (0.6 MB, 17.2 s, 172 frames at 10 fps, 1280x792), `after.mp4` (0.6 MB, 13.4 s, 134 frames at 10 fps,
+- `before.mp4` (1.5 MB, 12.6 s, 754 frames at 60 fps, 1280x792), `after.mp4` (1.5 MB, 13.2 s, 791 frames at 60 fps,
   1280x792): H.264, yuv420p, real-time video of the stone pickaxe mining diamond ore, then the break (an experience
   orb and the experience bar before; nothing after), recorded in a later run of the same scenario than the PNGs.
-  Built from frames captured continuously through Cinnabar's own screenshot tool during the run (48 frames at 2.84
-  per second before, 49 at 3.72 after); each frame is shown for as long as it lasted, so playback speed is real time.
-  A caption bar was added above the frames (the Dragonfly commit, before or after, and the step being shown); the
-  frames themselves are unedited.
-- `before.gif` (0.6 MB, 17.2 s, 69 frames at 4 fps, 640x396), `after.gif` (0.7 MB, 13.5 s, 54 frames at 4 fps,
-  640x396): the same, scaled down for display in the PR.
+  Recorded by Cinnabar's own recorder (record_start with fps 60, fixed_clock false so that the game follows the wall
+  clock as the server does, audio off; hidden window), started before the action and stopped once the result is
+  visible. record_stop reported: before, 754 frames recorded, 0 dropped, 0 filled; after, 791 frames recorded, 0
+  dropped, 0 filled. Then, with ffmpeg only: a caption bar added above the picture (the Dragonfly commit, before or
+  after, and the step being shown), and a re-encode (H.264, yuv420p, faststart, same frame rate); the recorded
+  picture is not otherwise changed.
+- `before.gif` (3.7 MB, 12.6 s, 251 frames at 20 fps, 640x396), `after.gif` (3.6 MB, 13.2 s, 264 frames at 20 fps,
+  640x396): made from the MP4s with ffmpeg (palettegen/paletteuse), for display in the PR.
 - `before-ore-broken.png`, `after-ore-broken.png`: just after the ore broke. Before: a yellow experience orb in the
   gap and the experience bar above the hotbar partly filled. After: only breaking particles.
 - `*-ore-before.png`: the three ores before breaking.

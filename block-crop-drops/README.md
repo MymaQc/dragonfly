@@ -37,15 +37,17 @@ a carrot on x 5 and nether wart on the soul sand at x 7, and looks at the field 
 
 ## Files
 
-- `before.mp4` (3.1 MB, 43.5 s, 435 frames at 10 fps, 1280x792), `after.mp4` (3.0 MB, 43.2 s, 432 frames at 10 fps,
+- `before.mp4` (6.0 MB, 43.7 s, 2624 frames at 60 fps, 1280x792), `after.mp4` (6.4 MB, 46.8 s, 2809 frames at 60 fps,
   1280x792): H.264, yuv420p, real-time video of the field, each crop broken by hand (drops going to the inventory),
   then the seeds, carrot and nether wart planted (grown at once before, seedlings after), recorded in a later run of
-  the same scenario than the PNGs. Built from frames captured continuously through Cinnabar's own screenshot tool
-  during the run (154 frames at 3.56 per second before, 154 at 3.59 after); each frame is shown for as long as it
-  lasted, so playback speed is real time. A caption bar was added above the frames (the Dragonfly commit, before or
-  after, and the step being shown); the frames themselves are unedited.
-- `before.gif` (4.3 MB, 43.5 s, 174 frames at 4 fps, 640x396), `after.gif` (4.1 MB, 43.2 s, 173 frames at 4 fps,
-  640x396): the same, scaled down for display in the PR.
+  the same scenario than the PNGs. Recorded by Cinnabar's own recorder (record_start with fps 60, fixed_clock false
+  so that the game follows the wall clock as the server does, audio off; hidden window), started before the action
+  and stopped once the result is visible. record_stop reported: before, 2624 frames recorded, 0 dropped, 0 filled;
+  after, 2809 frames recorded, 0 dropped, 0 filled. Then, with ffmpeg only: a caption bar added above the picture
+  (the Dragonfly commit, before or after, and the step being shown), and a re-encode (H.264, yuv420p, faststart, same
+  frame rate); the recorded picture is not otherwise changed.
+- `before.gif` (7.2 MB, 43.7 s, 437 frames at 10 fps, 560x346), `after.gif` (4.5 MB, 46.9 s, 375 frames at 8 fps,
+  480x298): made from the MP4s with ffmpeg (palettegen/paletteuse), for display in the PR.
 - `before-field-replanted.png`: auto-pickup on 106fdc28; the wheat, carrots and nether wart just planted are fully
   grown.
 - `after-field-replanted.png`: auto-pickup with the fix; they are seedlings.
