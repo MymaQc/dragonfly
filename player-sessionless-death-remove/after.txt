@@ -1,0 +1,2 @@
+after hurt: dead=true
+RESULT: session-less player was removed from the world after death (fixed)

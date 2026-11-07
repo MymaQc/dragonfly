@@ -1,0 +1,2 @@
+[PANIC] D22 firework no Item           interface conversion: world.Item is nil, not item.Firework
+[PANIC] D22 firework Item is stone     interface conversion: world.Item is block.Stone, not item.Firework

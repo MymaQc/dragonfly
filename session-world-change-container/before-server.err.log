@@ -1,0 +1,30 @@
+time=2026-11-07T03:34:59.318-05:00 level=WARN msg="Using a temporary private key for the NetherNet listener. Players connecting over plain HTTP may see the TOFU (Trust On First Use) prompt every time the server restarts." "net origin"=nethernet
+time=2026-11-07T03:34:59.320-05:00 level=INFO msg="NetherNet listener running." addr=127.0.0.1:19402
+time=2026-11-07T03:34:59.340-05:00 level=DEBUG msg="Loading dimension..." dimension=overworld
+time=2026-11-07T03:34:59.341-05:00 level=INFO msg="Opened dimension." dimension=overworld name=World
+time=2026-11-07T03:34:59.341-05:00 level=DEBUG msg="Loading dimension..." dimension=nether
+time=2026-11-07T03:34:59.341-05:00 level=INFO msg="Opened dimension." dimension=nether name=World
+time=2026-11-07T03:34:59.341-05:00 level=DEBUG msg="Loading dimension..." dimension=end
+time=2026-11-07T03:34:59.341-05:00 level=INFO msg="Opened dimension." dimension=end name=World
+time=2026-11-07T03:34:59.342-05:00 level=INFO msg="Dragonfly server started." mc-version=1.26.60 go-version=go1.26.5 commit=""
+time=2026-11-07T03:35:01.219-05:00 level=DEBUG msg="NetherNet HTTP request." "net origin"=nethernet-http method=GET path=/v1/join raddr=127.0.0.1:60229
+time=2026-11-07T03:35:01.430-05:00 level=DEBUG msg="NetherNet HTTP request." "net origin"=nethernet-http method=POST path=/v1/join/6889272957249736674 raddr=127.0.0.1:60229
+time=2026-11-07T03:35:01.634-05:00 level=DEBUG msg="end of candidate" "net origin"=nethernet src=listener networkID=6889272957249736674 connectionID=12597611524621018463 connection.id=12597611524621018463 connection.networkID=6889272957249736674
+time=2026-11-07T03:35:01.634-05:00 level=DEBUG msg="received first candidate" "net origin"=nethernet src=listener networkID=6889272957249736674 connectionID=12597611524621018463 connection.id=12597611524621018463 connection.networkID=6889272957249736674
+time=2026-11-07T03:35:01.634-05:00 level=DEBUG msg="starting ICE transport as controlled" "net origin"=nethernet src=listener networkID=6889272957249736674 connectionID=12597611524621018463 connection.id=12597611524621018463 connection.networkID=6889272957249736674
+time=2026-11-07T03:35:01.638-05:00 level=DEBUG msg="starting DTLS transport" "net origin"=nethernet src=listener networkID=6889272957249736674 connectionID=12597611524621018463 connection.id=12597611524621018463 connection.networkID=6889272957249736674 remoteRole=auto
+time=2026-11-07T03:35:01.639-05:00 level=DEBUG msg="starting SCTP transport" "net origin"=nethernet src=listener networkID=6889272957249736674 connectionID=12597611524621018463 connection.id=12597611524621018463 connection.networkID=6889272957249736674
+time=2026-11-07T03:35:29.522-05:00 level=DEBUG msg="connection is closing with a cause" "net origin"=nethernet src=listener networkID=6889272957249736674 connectionID=12597611524621018463 connection.id=12597611524621018463 connection.networkID=6889272957249736674 cause="nethernet: SCTP transport closed"
+time=2026-11-07T03:35:30.198-05:00 level=INFO msg="Server closing..."
+time=2026-11-07T03:35:30.198-05:00 level=DEBUG msg="Disconnecting players..."
+time=2026-11-07T03:35:30.198-05:00 level=DEBUG msg="Closing player provider..."
+time=2026-11-07T03:35:30.198-05:00 level=DEBUG msg="Closing worlds..."
+time=2026-11-07T03:35:30.198-05:00 level=DEBUG msg="Saving chunks in memory to disk..." dimension=end
+time=2026-11-07T03:35:30.198-05:00 level=DEBUG msg="Updating level.dat values..." dimension=end
+time=2026-11-07T03:35:30.198-05:00 level=DEBUG msg="Saving chunks in memory to disk..." dimension=nether
+time=2026-11-07T03:35:30.198-05:00 level=DEBUG msg="Updating level.dat values..." dimension=nether
+time=2026-11-07T03:35:30.198-05:00 level=DEBUG msg="Saving chunks in memory to disk..." dimension=overworld
+time=2026-11-07T03:35:30.198-05:00 level=DEBUG msg="Updating level.dat values..." dimension=overworld
+time=2026-11-07T03:35:30.198-05:00 level=DEBUG msg="Closing provider..." dimension=overworld
+time=2026-11-07T03:35:30.200-05:00 level=DEBUG msg="Closing listeners..."
+time=2026-11-07T03:35:30.200-05:00 level=INFO msg="Server closed." uptime=30.8557866s

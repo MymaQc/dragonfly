@@ -1,0 +1,19 @@
+INFO run folder <work>\runs\20261107-032707-final-d14-vanilla-base
+INFO server listening, pid 3720, scenario d14
+INFO crops: {"carrot":{"go":"block.Carrot","name":"minecraft:carrots","properties":{"growth":7}},"event":"crops","time":1794040027498,"wart":{"go":"block.NetherWart","name":"minecraft:nether_wart","properties":{"age":3}},"wheat":{"go":"block.WheatSeeds","name":"minecraft:wheat","properties":{"growth":7}}}
+INFO Cinnabar started hidden, pid 37904
+INFO screenshot 01-field-before.png
+INFO broke: {"block":{"go":"block.WheatSeeds","name":"minecraft:wheat","properties":{"growth":7}},"drops":[{"count":1,"go":"item.Wheat{}","meta":0,"name":"minecraft:wheat"},{"count":1,"go":"block.WheatSeeds{crop:block.crop{transparent:block.transparent{}, empty:block.empty{}, Growth:7}}","meta":0,"name":"minecraft:wheat_seeds"}],"event":"block-break","player":"p1","position":[2,-60,3],"time":1794040056039,"xp":0}
+INFO broke: {"block":{"go":"block.Carrot","name":"minecraft:carrots","properties":{"growth":7}},"drops":[{"count":3,"go":"block.Carrot{crop:block.crop{transparent:block.transparent{}, empty:block.empty{}, Growth:7}}","meta":0,"name":"minecraft:carrot"}],"event":"block-break","player":"p1","position":[4,-60,3],"time":1794040063781,"xp":0}
+INFO broke: {"block":{"go":"block.NetherWart","name":"minecraft:nether_wart","properties":{"age":3}},"drops":[{"count":3,"go":"block.NetherWart{transparent:block.transparent{}, empty:block.empty{}, Age:3}","meta":0,"name":"minecraft:nether_wart"}],"event":"block-break","player":"p1","position":[6,-60,3],"time":1794040071203,"xp":0}
+INFO picked up: {"event":"item-pickup","item":{"count":1,"go":"item.Wheat{}","meta":0,"name":"minecraft:wheat"},"player":"p1","time":1794040057400}
+INFO picked up: {"event":"item-pickup","item":{"count":1,"go":"block.WheatSeeds{crop:block.crop{transparent:block.transparent{}, empty:block.empty{}, Growth:0}}","meta":0,"name":"minecraft:wheat_seeds"},"player":"p1","time":1794040057499}
+INFO picked up: {"event":"item-pickup","item":{"count":3,"go":"block.Carrot{crop:block.crop{transparent:block.transparent{}, empty:block.empty{}, Growth:0}}","meta":0,"name":"minecraft:carrot"},"player":"p1","time":1794040065050}
+INFO picked up: {"event":"item-pickup","item":{"count":3,"go":"block.NetherWart{transparent:block.transparent{}, empty:block.empty{}, Age:0}","meta":0,"name":"minecraft:nether_wart"},"player":"p1","time":1794040072750}
+INFO client inventory: minecraft:wheat x1, minecraft:wheat_seeds x1, minecraft:carrot x3, minecraft:nether_wart x3
+INFO planted minecraft:wheat_seeds: {"block":{"go":"block.WheatSeeds","name":"minecraft:wheat","properties":{"growth":0}},"event":"block-place","player":"p1","position":[3,-60,3],"time":1794040080443}
+INFO planted minecraft:carrot: {"block":{"go":"block.Carrot","name":"minecraft:carrots","properties":{"growth":0}},"event":"block-place","player":"p1","position":[5,-60,3],"time":1794040081942}
+INFO planted minecraft:nether_wart: {"block":{"go":"block.NetherWart","name":"minecraft:nether_wart","properties":{"age":0}},"event":"block-place","player":"p1","position":[7,-60,3],"time":1794040083473}
+INFO screenshot 02-field-replanted.png
+RESULT DONE (<work>\runs\20261107-032707-final-d14-vanilla-base)
+INFO server stopped (stopped event seen)

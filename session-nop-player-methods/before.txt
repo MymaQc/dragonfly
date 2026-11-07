@@ -1,0 +1,5 @@
+[PANIC] HideHudElement   world: scheduled task panicked: assignment to entry in nil map
+[PANIC] RemoveScoreboard world: scheduled task panicked: runtime error: invalid memory address or nil pointer dereference
+[PANIC] SendForm         world: scheduled task panicked: interface conversion: session.packetHandler is nil, not *session.ModalFormResponseHandler
+[PANIC] SendDialogue     world: scheduled task panicked: interface conversion: session.packetHandler is nil, not *session.NPCRequestHandler
+[PANIC] CloseDialogue    world: scheduled task panicked: interface conversion: session.packetHandler is nil, not *session.NPCRequestHandler

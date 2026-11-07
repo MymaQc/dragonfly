@@ -1,0 +1,71 @@
+package main
+
+import (
+	"context"
+	"fmt"
+	"time"
+
+	"github.com/df-mc/dragonfly/server/entity"
+	"github.com/df-mc/dragonfly/server/player"
+	"github.com/df-mc/dragonfly/server/world"
+	"github.com/google/uuid"
+)
+
+// This program spawns a player without a session (an NPC-like player), kills it,
+// waits for the death to finish, and reports whether the player is still present
+// in the world afterwards.
+func main() {
+	w := world.Config{}.New()
+	defer func() { _ = w.Close() }()
+
+	id := uuid.New()
+	handle := world.EntitySpawnOpts{Position: [3]float64{0, 64, 0}, ID: id}.New(player.Type, player.Config{
+		Name:     "NPC",
+		Position: [3]float64{0, 64, 0},
+	})
+
+	// Add the session-less player to the world.
+	if err := w.Do(func(tx *world.Tx) {
+		tx.AddEntity(handle)
+	}).Wait(context.Background()); err != nil {
+		fmt.Println("add entity failed:", err)
+		return
+	}
+
+	// Kill the player with lethal void damage.
+	if err := w.Do(func(tx *world.Tx) {
+		e, ok := handle.Entity(tx)
+		if !ok {
+			fmt.Println("player not found before kill")
+			return
+		}
+		p := e.(*player.Player)
+		p.Hurt(1e9, entity.VoidDamageSource{})
+		fmt.Printf("after hurt: dead=%v\n", p.Dead())
+	}).Wait(context.Background()); err != nil {
+		fmt.Println("kill failed:", err)
+		return
+	}
+
+	// finishDying is scheduled ~1.1s after death. Wait for it to run.
+	time.Sleep(2 * time.Second)
+
+	// Check whether the player is still present in the world.
+	present := false
+	if err := w.Do(func(tx *world.Tx) {
+		for e := range tx.Entities() {
+			if _, ok := e.(*player.Player); ok {
+				present = true
+			}
+		}
+	}).Wait(context.Background()); err != nil {
+		fmt.Println("check failed:", err)
+		return
+	}
+
+	if present {
+		fmt.Println("RESULT: session-less player is STILL in the world after death (BUG)")
+	} else {
+		fmt.Println("RESULT: session-less player was removed from the world after death (fixed)")
+	}
+}

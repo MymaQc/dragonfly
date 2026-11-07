@@ -1,0 +1,8 @@
+=== RUN   TestD34LoaderForeignTxClose
+    d34_repro_test.go:37: chunks loaded in world A before close: 69
+    d34_repro_test.go:56: world A chunks still viewed by the closed loader: 69
+    d34_repro_test.go:58: loader still views 69 chunks of world A after close with a foreign tx
+--- FAIL: TestD34LoaderForeignTxClose (0.82s)
+FAIL
+FAIL	github.com/df-mc/dragonfly/server/world	1.531s
+FAIL

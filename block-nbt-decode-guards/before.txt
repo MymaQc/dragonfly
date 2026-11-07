@@ -1,0 +1,8 @@
+[PANIC] D26 beacon non-lasting primary interface conversion: effect.instantHealth is not effect.LastingType: missing method End
+[PANIC] D30 bed colour 16            runtime error: index out of range [16] with length 16
+[PANIC] D31 banner layer not compound interface conversion: interface {} is string, not map[string]interface {}
+[PANIC] D31 banner unknown pattern   unknown banner pattern id "zzz"
+[PANIC] D31 pot sherd not string     interface conversion: interface {} is int32, not string
+[PANIC] D31 pot sherd unknown item   unknown item minecraft:zzz
+[PANIC] D31 pot sherd not decoration item minecraft:stone is not a pot decoration
+[PANIC] D31 skull type 7 encode      unknown skull type

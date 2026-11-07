@@ -1,0 +1,17 @@
+INFO run folder <work>\runs\20261107-033459-final-d33-base
+INFO server listening, pid 30808, scenario d33
+INFO chest: {"chest":{"block":{"go":"block.Chest","name":"minecraft:chest","properties":{"minecraft:cardinal_direction":"east"}},"items":[{"count":64,"go":"item.Diamond{}","meta":0,"name":"minecraft:diamond"}]},"event":"chest-placed","time":1794040499342}
+INFO Cinnabar started hidden, pid 36352
+INFO chest open: 64 diamonds
+INFO screenshot 01-chest-open-overworld.png
+INFO moved: {"event":"moved-in","position":[0.5,-59.9999885559082,0.5],"time":1794040523583,"to":"second-overworld"}
+INFO after the move: open true, screen container, 64 diamonds shown
+INFO screenshot 02-after-move-to-second-world.png
+INFO after taking: 64 diamonds in the player's inventory
+INFO screenshot 03-taken-in-second-world.png
+INFO screenshot 04-second-world-no-chest.png
+INFO {"chest":{"block":{"go":"block.Chest","name":"minecraft:chest","properties":{"minecraft:cardinal_direction":"east"}},"items":[{"count":64,"go":"item.Diamond{}","meta":0,"name":"minecraft:diamond"}]},"event":"chest-placed","time":1794040499342}
+INFO {"chest_world":"overworld","event":"chest-take","item":{"count":64,"go":"item.Diamond{}","meta":0,"name":"minecraft:diamond"},"player_tx_world":"second-overworld","slot":0,"time":1794040526289}
+INFO server stopped (stopped event seen)
+INFO before closing: {"chest":{"block":{"go":"block.Chest","name":"minecraft:chest","properties":{"minecraft:cardinal_direction":"east"}},"items":[]},"event":"chest-before-close","time":1794040530198}
+RESULT DONE (<work>\runs\20261107-033459-final-d33-base)

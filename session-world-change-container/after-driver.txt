@@ -1,0 +1,16 @@
+INFO run folder <work>\runs\20261107-033532-final-d33-fix
+INFO server listening, pid 33568, scenario d33
+INFO chest: {"chest":{"block":{"go":"block.Chest","name":"minecraft:chest","properties":{"minecraft:cardinal_direction":"east"}},"items":[{"count":64,"go":"item.Diamond{}","meta":0,"name":"minecraft:diamond"}]},"event":"chest-placed","time":1794040533087}
+INFO Cinnabar started hidden, pid 9892
+INFO chest open: 64 diamonds
+INFO screenshot 01-chest-open-overworld.png
+INFO moved: {"event":"moved-in","position":[0.5,-59.9999885559082,0.5],"time":1794040563171,"to":"second-overworld"}
+INFO after the move: open false, screen , 0 diamonds shown
+INFO screenshot 02-after-move-to-second-world.png
+INFO screenshot 03-second-world-no-chest.png
+INFO {"chest":{"block":{"go":"block.Chest","name":"minecraft:chest","properties":{"minecraft:cardinal_direction":"east"}},"items":[{"count":64,"go":"item.Diamond{}","meta":0,"name":"minecraft:diamond"}]},"event":"chest-placed","time":1794040533087}
+INFO server stopped (stopped event seen)
+INFO before closing: {"chest":{"block":{"go":"block.Chest","name":"minecraft:chest","properties":{"minecraft:cardinal_direction":"east"}},"items":[{"count":64,"go":"item.Diamond{}","meta":0,"name":"minecraft:diamond"}]},"event":"chest-before-close","time":1794040568833}
+RESULT DONE (<work>\runs\20261107-033532-final-d33-fix)
+INFO stopped leftover process cinnabar 16256
+INFO stopped leftover process cinnabar-mcp 28908

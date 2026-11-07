@@ -1,0 +1,34 @@
+INFO run folder <work>\runs\20261107-033018-final-d16-base
+INFO server listening, pid 34244, scenario d16
+INFO Cinnabar started hidden, pid 39040
+INFO screenshot 01-before.png
+INFO given: {"effects":["effect.wither(id 20) level 4, 1m0s left"],"event":"wither-given","health":20,"time":1794040239777}
+INFO death: {"effects":["effect.wither(id 20) level 4, 43.75s left"],"event":"death","player":"p1","source":"effect.WitherDamageSource","time":1794040256034}
+INFO screenshot 02-dead.png
+INFO menu at death: {"connecting":false,"focused_action":"Respawn","screen":"Death","sign_in_browser":"Waiting","sign_in_fixture":null,"visible":true}
+INFO respawn: {"effects":["effect.wither(id 20) level 4, 43.7s left"],"event":"respawn","player":"p1","position":[0.5,-60,0.5],"time":1794040258946}
+INFO screenshot 03-respawned.png
+INFO screenshot 04-respawned-15s-later.png
+INFO status: {"dead":true,"effects":["effect.wither(id 20) level 4, 43.7s left"],"event":"status","health":0,"player":"p1","time":1794040257370}
+INFO status: {"dead":true,"effects":["effect.wither(id 20) level 4, 43.7s left"],"event":"status","health":0,"player":"p1","time":1794040258370}
+INFO status: {"dead":false,"effects":["effect.wither(id 20) level 4, 43.3s left"],"event":"status","health":19,"player":"p1","time":1794040259370}
+INFO status: {"dead":false,"effects":["effect.wither(id 20) level 4, 42.3s left"],"event":"status","health":19,"player":"p1","time":1794040260370}
+INFO status: {"dead":false,"effects":["effect.wither(id 20) level 4, 41.3s left"],"event":"status","health":18,"player":"p1","time":1794040261370}
+INFO status: {"dead":false,"effects":["effect.wither(id 20) level 4, 40.3s left"],"event":"status","health":17,"player":"p1","time":1794040262370}
+INFO status: {"dead":false,"effects":["effect.wither(id 20) level 4, 39.3s left"],"event":"status","health":18,"player":"p1","time":1794040263370}
+INFO status: {"dead":false,"effects":["effect.wither(id 20) level 4, 38.3s left"],"event":"status","health":16,"player":"p1","time":1794040264370}
+INFO status: {"dead":false,"effects":["effect.wither(id 20) level 4, 37.3s left"],"event":"status","health":15,"player":"p1","time":1794040265370}
+INFO status: {"dead":false,"effects":["effect.wither(id 20) level 4, 36.3s left"],"event":"status","health":13,"player":"p1","time":1794040266370}
+INFO status: {"dead":false,"effects":["effect.wither(id 20) level 4, 35.3s left"],"event":"status","health":13,"player":"p1","time":1794040267370}
+INFO status: {"dead":false,"effects":["effect.wither(id 20) level 4, 34.3s left"],"event":"status","health":12,"player":"p1","time":1794040268371}
+INFO status: {"dead":false,"effects":["effect.wither(id 20) level 4, 33.3s left"],"event":"status","health":10,"player":"p1","time":1794040269370}
+INFO status: {"dead":false,"effects":["effect.wither(id 20) level 4, 32.3s left"],"event":"status","health":8,"player":"p1","time":1794040270371}
+INFO status: {"dead":false,"effects":["effect.wither(id 20) level 4, 31.3s left"],"event":"status","health":7,"player":"p1","time":1794040271370}
+INFO status: {"dead":false,"effects":["effect.wither(id 20) level 4, 30.3s left"],"event":"status","health":5,"player":"p1","time":1794040272370}
+INFO status: {"dead":false,"effects":["effect.wither(id 20) level 4, 29.3s left"],"event":"status","health":3,"player":"p1","time":1794040273371}
+INFO status: {"dead":false,"effects":["effect.wither(id 20) level 4, 28.3s left"],"event":"status","health":2,"player":"p1","time":1794040274371}
+INFO status: {"dead":false,"effects":["effect.wither(id 20) level 4, 27.3s left"],"event":"status","health":1,"player":"p1","time":1794040275371}
+INFO status: {"dead":true,"effects":["effect.wither(id 20) level 4, 27.2s left"],"event":"status","health":0,"player":"p1","time":1794040276371}
+INFO deaths: 2
+RESULT DONE (<work>\runs\20261107-033018-final-d16-base)
+INFO server stopped (stopped event seen)

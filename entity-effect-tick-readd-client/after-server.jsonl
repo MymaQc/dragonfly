@@ -1,0 +1,49 @@
+{"event":"start","scenario":"d16","spawn":[0,-60,0],"time":1794040279685,"world":"<work>\\runs\\20261107-033119-final-d16-fix\\world"}
+{"address":"http://127.0.0.1:19402","event":"listening","time":1794040279685}
+{"event":"player-joined","game_mode":"world.survival","player":"p1","position":[0.5,-59.5,0.5],"time":1794040297410,"world":"overworld"}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040298411}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040299411}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040300411}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040301411}
+{"args":[],"command":"wither","event":"command","player":"p1","time":1794040301891}
+{"effects":["effect.wither(id 20) level 4, 1m0s left"],"event":"wither-given","health":20,"time":1794040301891}
+{"dead":false,"effects":["effect.wither(id 20) level 4, 59.5s left"],"event":"status","health":19,"player":"p1","time":1794040302411}
+{"dead":false,"effects":["effect.wither(id 20) level 4, 58.5s left"],"event":"status","health":18,"player":"p1","time":1794040303412}
+{"dead":false,"effects":["effect.wither(id 20) level 4, 57.5s left"],"event":"status","health":17,"player":"p1","time":1794040304411}
+{"dead":false,"effects":["effect.wither(id 20) level 4, 56.5s left"],"event":"status","health":16,"player":"p1","time":1794040305411}
+{"dead":false,"effects":["effect.wither(id 20) level 4, 55.5s left"],"event":"status","health":17,"player":"p1","time":1794040306411}
+{"dead":false,"effects":["effect.wither(id 20) level 4, 54.5s left"],"event":"status","health":15,"player":"p1","time":1794040307412}
+{"dead":false,"effects":["effect.wither(id 20) level 4, 53.5s left"],"event":"status","health":14,"player":"p1","time":1794040308412}
+{"dead":false,"effects":["effect.wither(id 20) level 4, 52.5s left"],"event":"status","health":12,"player":"p1","time":1794040309411}
+{"dead":false,"effects":["effect.wither(id 20) level 4, 51.5s left"],"event":"status","health":12,"player":"p1","time":1794040310412}
+{"dead":false,"effects":["effect.wither(id 20) level 4, 50.5s left"],"event":"status","health":11,"player":"p1","time":1794040311412}
+{"dead":false,"effects":["effect.wither(id 20) level 4, 49.5s left"],"event":"status","health":9,"player":"p1","time":1794040312412}
+{"dead":false,"effects":["effect.wither(id 20) level 4, 48.5s left"],"event":"status","health":7,"player":"p1","time":1794040313412}
+{"dead":false,"effects":["effect.wither(id 20) level 4, 47.5s left"],"event":"status","health":6,"player":"p1","time":1794040314412}
+{"dead":false,"effects":["effect.wither(id 20) level 4, 46.5s left"],"event":"status","health":4,"player":"p1","time":1794040315412}
+{"dead":false,"effects":["effect.wither(id 20) level 4, 45.5s left"],"event":"status","health":3,"player":"p1","time":1794040316412}
+{"dead":false,"effects":["effect.wither(id 20) level 4, 44.5s left"],"event":"status","health":1,"player":"p1","time":1794040317412}
+{"effects":["effect.wither(id 20) level 4, 44.25s left"],"event":"death","player":"p1","source":"effect.WitherDamageSource","time":1794040317687}
+{"dead":true,"effects":null,"event":"status","health":0,"player":"p1","time":1794040318412}
+{"dead":true,"effects":null,"event":"status","health":0,"player":"p1","time":1794040319412}
+{"effects":null,"event":"respawn","player":"p1","position":[0.5,-60,0.5],"time":1794040320126}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040320412}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040321413}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040322413}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040323412}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040324413}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040325413}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040326413}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040327412}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040328413}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040329413}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040330414}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040331413}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040332413}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040333413}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040334413}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040335413}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040336413}
+{"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040337413}
+{"event":"player-left","player":"p1","time":1794040337731}
+{"event":"stopped","time":1794040338794}

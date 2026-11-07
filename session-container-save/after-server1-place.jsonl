@@ -1,0 +1,5 @@
+{"event":"start","scenario":"d23-place","spawn":[0,-60,0],"time":1794039900651,"world":"<work>\\runs\\20261107-032459-final-d23-fix\\world"}
+{"chest":{"block":{"go":"block.Chest","name":"minecraft:chest","properties":{"minecraft:cardinal_direction":"east"}},"items":[]},"chunk":[-1,0],"event":"chest-placed","time":1794039900651}
+{"address":"http://127.0.0.1:19402","event":"listening","time":1794039900651}
+{"chest":{"block":{"go":"block.Chest","name":"minecraft:chest","properties":{"minecraft:cardinal_direction":"east"}},"items":[]},"event":"chest-before-close","time":1794039900851}
+{"event":"stopped","time":1794039900853}

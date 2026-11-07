@@ -1,0 +1,12 @@
+{"event":"start","scenario":"d33","spawn":[0,-60,0],"time":1794040499341,"world":"<work>\\runs\\20261107-033459-final-d33-base\\world"}
+{"chest":{"block":{"go":"block.Chest","name":"minecraft:chest","properties":{"minecraft:cardinal_direction":"east"}},"items":[{"count":64,"go":"item.Diamond{}","meta":0,"name":"minecraft:diamond"}]},"event":"chest-placed","time":1794040499342}
+{"address":"http://127.0.0.1:19402","event":"listening","time":1794040499342}
+{"event":"player-joined","game_mode":"world.survival","player":"p1","position":[0.5,-59.5,0.5],"time":1794040515338,"world":"overworld"}
+{"args":["4"],"command":"away","event":"command","player":"p1","time":1794040519581}
+{"event":"moved-out","from":"overworld","position":[0.5,-59.9999885559082,0.5],"time":1794040523582}
+{"event":"moved-in","position":[0.5,-59.9999885559082,0.5],"time":1794040523583,"to":"second-overworld"}
+{"after":"second-overworld","before":"overworld","event":"change-world","player":"p1","time":1794040523594}
+{"chest_world":"overworld","event":"chest-take","item":{"count":64,"go":"item.Diamond{}","meta":0,"name":"minecraft:diamond"},"player_tx_world":"second-overworld","slot":0,"time":1794040526289}
+{"event":"player-left","player":"p1","time":1794040529522}
+{"chest":{"block":{"go":"block.Chest","name":"minecraft:chest","properties":{"minecraft:cardinal_direction":"east"}},"items":[]},"event":"chest-before-close","time":1794040530198}
+{"event":"stopped","time":1794040530200}

@@ -1,0 +1,2 @@
+after hurt: dead=true
+RESULT: session-less player is STILL in the world after death (BUG)

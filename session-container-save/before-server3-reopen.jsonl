@@ -1,0 +1,7 @@
+{"event":"start","scenario":"d23-check","spawn":[0,-60,0],"time":1794039867917,"world":"<work>\\runs\\20261107-032357-final-d23-base\\world"}
+{"chest":{"block":{"go":"block.Chest","name":"minecraft:chest","properties":{"minecraft:cardinal_direction":"east"}},"items":[]},"chunk":[-1,0],"event":"chest-loaded","time":1794039867917}
+{"address":"http://127.0.0.1:19402","event":"listening","time":1794039867917}
+{"event":"player-joined","game_mode":"world.survival","player":"p1","position":[0.5,-59.5,0.5],"time":1794039889310,"world":"overworld"}
+{"event":"player-left","player":"p1","time":1794039895401}
+{"chest":{"block":{"go":"block.Chest","name":"minecraft:chest","properties":{"minecraft:cardinal_direction":"east"}},"items":[]},"event":"chest-before-close","time":1794039896199}
+{"event":"stopped","time":1794039896201}

@@ -1,0 +1,5 @@
+[PANIC] D20 book page not compound   interface conversion: interface {} is string, not map[string]interface {}
+[PANIC] D20 book page text wrong type interface conversion: interface {} is int32, not string
+[PANIC] D20 firework explosion missing interface conversion: interface {} is nil, not uint8
+[PANIC] D20 firework explosion not compound interface conversion: interface {} is string, not map[string]interface {}
+[PANIC] D20 firework star bad field  interface conversion: interface {} is string, not uint8

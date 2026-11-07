@@ -1,0 +1,39 @@
+package main
+
+import (
+	"fmt"
+
+	"github.com/df-mc/dragonfly/server/entity"
+	"github.com/df-mc/dragonfly/server/world"
+	_ "github.com/df-mc/dragonfly/server/world/biome"
+)
+
+func run(name string, fn func()) {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Printf("[PANIC] %-30s %v\n", name, r)
+			return
+		}
+		fmt.Printf("[ok]    %-30s (no panic)\n", name)
+	}()
+	fn()
+}
+
+func main() {
+	// D22: saved firework entity whose Item is absent.
+	run("D22 firework no Item", func() {
+		var data world.EntityData
+		entity.FireworkType.DecodeNBT(map[string]any{}, &data)
+	})
+	// D22: saved firework entity whose Item is a non-firework (stone).
+	run("D22 firework Item is stone", func() {
+		var data world.EntityData
+		item := map[string]any{
+			"Name":    "minecraft:stone",
+			"Damage":  int16(0),
+			"Count":   byte(1),
+			"Version": int32(0),
+		}
+		entity.FireworkType.DecodeNBT(map[string]any{"Item": item}, &data)
+	})
+}

@@ -1,0 +1,34 @@
+INFO run folder <work>\runs\20261107-033119-final-d16-fix
+INFO server listening, pid 22984, scenario d16
+INFO Cinnabar started hidden, pid 19064
+INFO screenshot 01-before.png
+INFO given: {"effects":["effect.wither(id 20) level 4, 1m0s left"],"event":"wither-given","health":20,"time":1794040301891}
+INFO death: {"effects":["effect.wither(id 20) level 4, 44.25s left"],"event":"death","player":"p1","source":"effect.WitherDamageSource","time":1794040317687}
+INFO screenshot 02-dead.png
+INFO menu at death: {"connecting":false,"focused_action":"Respawn","screen":"Death","sign_in_browser":"Waiting","sign_in_fixture":null,"visible":true}
+INFO respawn: {"effects":null,"event":"respawn","player":"p1","position":[0.5,-60,0.5],"time":1794040320126}
+INFO screenshot 03-respawned.png
+INFO screenshot 04-respawned-15s-later.png
+INFO status: {"dead":true,"effects":null,"event":"status","health":0,"player":"p1","time":1794040318412}
+INFO status: {"dead":true,"effects":null,"event":"status","health":0,"player":"p1","time":1794040319412}
+INFO status: {"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040320412}
+INFO status: {"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040321413}
+INFO status: {"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040322413}
+INFO status: {"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040323412}
+INFO status: {"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040324413}
+INFO status: {"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040325413}
+INFO status: {"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040326413}
+INFO status: {"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040327412}
+INFO status: {"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040328413}
+INFO status: {"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040329413}
+INFO status: {"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040330414}
+INFO status: {"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040331413}
+INFO status: {"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040332413}
+INFO status: {"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040333413}
+INFO status: {"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040334413}
+INFO status: {"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040335413}
+INFO status: {"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040336413}
+INFO status: {"dead":false,"effects":null,"event":"status","health":20,"player":"p1","time":1794040337413}
+INFO deaths: 1
+RESULT DONE (<work>\runs\20261107-033119-final-d16-fix)
+INFO server stopped (stopped event seen)

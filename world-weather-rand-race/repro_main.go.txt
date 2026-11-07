@@ -1,0 +1,43 @@
+package main
+
+import (
+	"context"
+	"fmt"
+	"time"
+
+	"github.com/df-mc/dragonfly/server/world"
+)
+
+func main() {
+	w := world.Config{}.New()
+	defer func() { _ = w.Close() }()
+
+	// Add a loader so the world keeps ticking, and load a chunk so tickLightning
+	// draws from the world's rand source each tick while it is thundering.
+	l := world.NewLoader(2, w, world.NopViewer{})
+	_ = w.Do(func(tx *world.Tx) { l.Load(tx, 25) }).Wait(context.Background())
+	time.Sleep(300 * time.Millisecond)
+
+	w.StartThundering(time.Hour)
+
+	// From another goroutine, repeatedly stop/start rain. These exported weather
+	// methods draw the next duration from the world's rand source too, with no
+	// synchronisation against the ticking goroutine's tickLightning.
+	stop := make(chan struct{})
+	go func() {
+		for {
+			select {
+			case <-stop:
+				return
+			default:
+				w.StartRaining(time.Hour)
+				w.StopRaining()
+				w.StartThundering(time.Hour)
+			}
+		}
+	}()
+
+	time.Sleep(2 * time.Second)
+	close(stop)
+	fmt.Println("done")
+}

@@ -1,0 +1,5 @@
+[ok]    baseline valid chunk         decoded and read block ok
+[PANIC] nil back-reference layer     runtime error: invalid memory address or nil pointer dereference
+[PANIC] out-of-palette index         runtime error: index out of range [15] with length 1
+[ok]    invalid index size 7         decoded without error
+[error] huge announced palette       decode rejected: error decoding palette entry: EOF

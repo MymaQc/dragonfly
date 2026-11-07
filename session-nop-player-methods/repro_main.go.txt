@@ -1,0 +1,65 @@
+package main
+
+import (
+	"context"
+	"errors"
+	"fmt"
+
+	"github.com/df-mc/dragonfly/server/player"
+	"github.com/df-mc/dragonfly/server/player/dialogue"
+	"github.com/df-mc/dragonfly/server/player/form"
+	"github.com/df-mc/dragonfly/server/player/hud"
+	"github.com/df-mc/dragonfly/server/world"
+	"github.com/google/uuid"
+)
+
+type menuSubmit struct{}
+
+func (menuSubmit) Submit(form.Submitter, form.Button, *world.Tx) {}
+
+type dialogueSubmit struct{}
+
+func (dialogueSubmit) Submit(dialogue.Submitter, dialogue.Button, *world.Tx) {}
+
+// This program spawns a session-less player and calls the five session methods
+// that D32 concerns. Each call runs inside a world transaction; the world
+// recovers a panic and hands it back as the transaction's error, so a panic
+// shows up as a non-nil error returned to the waiter.
+func main() {
+	w := world.Config{}.New()
+	defer func() { _ = w.Close() }()
+
+	handle := world.EntitySpawnOpts{Position: [3]float64{0, 64, 0}, ID: uuid.New()}.New(player.Type, player.Config{
+		Name:     "NPC",
+		Position: [3]float64{0, 64, 0},
+	})
+	_ = w.Do(func(tx *world.Tx) { tx.AddEntity(handle) }).Wait(context.Background())
+
+	calls := []struct {
+		name string
+		fn   func(p *player.Player)
+	}{
+		{"HideHudElement", func(p *player.Player) { p.HideHudElement(hud.Health()) }},
+		{"RemoveScoreboard", func(p *player.Player) { p.RemoveScoreboard() }},
+		{"SendForm", func(p *player.Player) { p.SendForm(form.NewMenu(menuSubmit{}, "t")) }},
+		{"SendDialogue", func(p *player.Player) { p.SendDialogue(dialogue.New(dialogueSubmit{}, "t"), nil) }},
+		{"CloseDialogue", func(p *player.Player) { p.CloseDialogue() }},
+	}
+
+	for _, c := range calls {
+		err := w.Do(func(tx *world.Tx) {
+			e, ok := handle.Entity(tx)
+			if !ok {
+				return
+			}
+			c.fn(e.(*player.Player))
+		}).Wait(context.Background())
+		if err != nil && errors.Is(err, world.ErrTaskPanicked) {
+			fmt.Printf("[PANIC] %-16s %v\n", c.name, err)
+		} else if err != nil {
+			fmt.Printf("[err]   %-16s %v\n", c.name, err)
+		} else {
+			fmt.Printf("[ok]    %-16s (no panic)\n", c.name)
+		}
+	}
+}

@@ -1,0 +1,5 @@
+[ok]    D20 book page not compound   (no panic)
+[ok]    D20 book page text wrong type (no panic)
+[ok]    D20 firework explosion missing (no panic)
+[ok]    D20 firework explosion not compound (no panic)
+[ok]    D20 firework star bad field  (no panic)

@@ -1,0 +1,18 @@
+{"event":"start","scenario":"cmd","spawn":[0,-60,0],"time":1794039504026,"world":"<work>\\runs\\20261107-031823-aliases-base\\world"}
+{"event":"npc","name":"Nearest","position":[2,-60,2.5],"time":1794039504026}
+{"event":"npc","name":"Near","position":[3.5,-60,2.5],"time":1794039504026}
+{"event":"npc","name":"Far","position":[6.5,-60,2.5],"time":1794039504026}
+{"address":"http://127.0.0.1:19400","event":"listening","time":1794039504026}
+{"builds":500,"event":"alias-check","results":{"/conf aliases [c conf]":262,"/conf aliases [teleport tp]":238,"/first \u003cwhich\u003e options [alpha beta]":367,"/first \u003cwhich\u003e options [teleport tp]":133,"/first aliases [f first]":500,"/tp aliases [teleport tp]":500},"time":1794039519449}
+{"event":"player-joined","game_mode":"world.creative","player":"p1","position":[0.5,-59.5,0.5],"time":1794039519449,"world":"overworld"}
+{"event":"player-left","player":"p1","time":1794039529793}
+{"builds":500,"event":"alias-check","results":{"/conf aliases [c conf]":247,"/conf aliases [teleport tp]":253,"/first \u003cwhich\u003e options [alpha beta]":394,"/first \u003cwhich\u003e options [teleport tp]":106,"/first aliases [f first]":500,"/tp aliases [teleport tp]":500},"time":1794039546172}
+{"event":"player-joined","game_mode":"world.creative","player":"p1","position":[0.5,-59.5,0.5],"time":1794039546172,"world":"overworld"}
+{"event":"player-left","player":"p1","time":1794039556846}
+{"builds":500,"event":"alias-check","results":{"/conf aliases [c conf]":229,"/conf aliases [teleport tp]":271,"/first \u003cwhich\u003e options [alpha beta]":383,"/first \u003cwhich\u003e options [teleport tp]":117,"/first aliases [f first]":500,"/tp aliases [teleport tp]":500},"time":1794039574016}
+{"event":"player-joined","game_mode":"world.creative","player":"p1","position":[0.5,-59.5,0.5],"time":1794039574016,"world":"overworld"}
+{"event":"player-left","player":"p1","time":1794039584351}
+{"builds":500,"event":"alias-check","results":{"/conf aliases [c conf]":259,"/conf aliases [teleport tp]":241,"/first \u003cwhich\u003e options [alpha beta]":349,"/first \u003cwhich\u003e options [teleport tp]":151,"/first aliases [f first]":500,"/tp aliases [teleport tp]":500},"time":1794039603704}
+{"event":"player-joined","game_mode":"world.creative","player":"p1","position":[0.5,-59.5,0.5],"time":1794039603704,"world":"overworld"}
+{"event":"player-left","player":"p1","time":1794039614099}
+{"event":"stopped","time":1794039615350}

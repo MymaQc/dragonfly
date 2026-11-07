@@ -1,0 +1,8 @@
+INFO run folder <work>\runs\20261107-033630-final-xp-base
+INFO server listening, pid 34076, scenario xp
+INFO Cinnabar started hidden, pid 31092
+INFO screenshot 01-ore-before.png
+INFO broke: {"block":{"go":"block.DiamondOre","name":"minecraft:diamond_ore","properties":null},"drops":[],"event":"block-break","player":"p1","position":[3,-60,3],"time":1794040617225,"xp":4}
+INFO screenshot 02-ore-broken.png
+RESULT DONE (<work>\runs\20261107-033630-final-xp-base)
+INFO server stopped (stopped event seen)

@@ -1,0 +1,31 @@
+INFO run folder <work>\runs\20261107-033406-final-cmd-nil-fix
+INFO server listening, pid 19988, scenario cmd
+INFO Cinnabar started hidden, pid 26008
+INFO screenshot 01-npcs.png
+INFO screenshot 02-pick-outputs.png
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040468288}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040469221}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040469855}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040470488}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040471121}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040472055}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040472690}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040473321}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040473954}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040474589}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040475222}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040475855}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040476489}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040477121}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040477757}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040478389}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040479021}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040479956}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Cinnabar (0.0 blocks)"],"time":1794040480589}
+INFO pick: {"event":"pick","players_nearest_first":["Cinnabar 0.0","Nearest 2.5","Near 3.6","Far 6.3"],"targets":["Nearest (2.5 blocks)"],"time":1794040481222}
+INFO screenshot 03-empty-command-output.png
+INFO screenshot 04-suggest-first.png
+INFO screenshot 05-suggest-c.png
+INFO screenshot 06-suggest-te.png
+RESULT DONE (<work>\runs\20261107-033406-final-cmd-nil-fix)
+INFO server stopped (stopped event seen)

@@ -1,0 +1,87 @@
+package main
+
+import (
+	"fmt"
+
+	"bytes"
+
+	"github.com/df-mc/dragonfly/server/block/cube"
+	"github.com/df-mc/dragonfly/server/world/chunk"
+	"github.com/sandertv/gophertunnel/minecraft/protocol"
+)
+
+type reg struct{}
+
+func (reg) BlockCount() int                                             { return 1 }
+func (reg) AirRuntimeID() uint32                                        { return 0 }
+func (reg) RuntimeIDToState(uint32) (string, map[string]any, bool)      { return "", nil, false }
+func (reg) StateToRuntimeID(string, map[string]any) (uint32, bool)      { return 0, false }
+func (reg) DefaultProperties(string) (map[string]any, bool)            { return nil, false }
+func (reg) FilteringBlock(uint32) uint8                                 { return 0 }
+func (reg) LightBlock(uint32) uint8                                     { return 0 }
+func (reg) RandomTickBlock(uint32) bool                                 { return false }
+func (reg) NBTBlock(uint32) bool                                        { return false }
+func (reg) LiquidDisplacingBlock(uint32) bool                           { return false }
+func (reg) LiquidBlock(uint32) bool                                     { return false }
+func (reg) HashToRuntimeID(uint32) (uint32, bool)                       { return 0, false }
+func (reg) RuntimeIDToHash(uint32) (uint32, bool)                       { return 0, false }
+
+var r = cube.Range{0, 15} // a single sub-chunk to keep the biome section tiny
+
+func run(name string, data []byte, read bool) {
+	defer func() {
+		if rec := recover(); rec != nil {
+			fmt.Printf("[PANIC] %-28s %v\n", name, rec)
+		}
+	}()
+	c, err := chunk.NetworkDecode(reg{}, data, 1, r)
+	if err != nil {
+		fmt.Printf("[error] %-28s decode rejected: %v\n", name, err)
+		return
+	}
+	if !read {
+		fmt.Printf("[ok]    %-28s decoded without error\n", name)
+		return
+	}
+	_ = c.Block(0, 0, 0, 0)
+	fmt.Printf("[ok]    %-28s decoded and read block ok\n", name)
+}
+
+func main() {
+	// Baseline: a valid minimal chunk (size-0 block storage + size-0 biome storage).
+	run("baseline valid chunk", []byte{0x08, 0x01, 0x00, 0x00, 0x00, 0x00}, true)
+
+	// nil layer on back-reference: block storage flag 0x7f (byte 0xFE) yields a nil
+	// storage, then reading a block dereferences it.
+	run("nil back-reference layer", []byte{0x08, 0x01, 0xFE, 0x00, 0x00}, true)
+
+	// out-of-palette index: size-4 storage, all index nibbles 15, palette of one entry.
+	outOfPalette := []byte{0x08, 0x01, 4 << 1} // v8, 1 storage, blockSize byte = 4<<1
+	for i := 0; i < 512*4; i++ {
+		outOfPalette = append(outOfPalette, 0xFF) // 512 uint32s of index data, all bits set -> index 15
+	}
+	outOfPalette = append(outOfPalette, 0x02, 0x02) // palette: count 1, value 1 (non-air, so the block is read)
+	outOfPalette = append(outOfPalette, 0x00, 0x00) // biome size-0 storage
+	run("out-of-palette index", outOfPalette, true)
+
+	// invalid index size 7 (not one of 0-6,8,16): accepted on master.
+	invalidSize := []byte{0x08, 0x01, 7 << 1}
+	for i := 0; i < 1024*4; i++ {
+		invalidSize = append(invalidSize, 0x00) // 1024 uint32s of index data (size 7)
+	}
+	invalidSize = append(invalidSize, 0x02, 0x00) // palette count 1 (zigzag), value 0
+	invalidSize = append(invalidSize, 0x00, 0x00) // biome storage
+	run("invalid index size 7", invalidSize, false)
+
+	// huge announced palette count with no backing bytes: size-1 storage then a
+	// large positive count. Master allocates the slice for that count before it
+	// reads (and fails on) the entries.
+	huge := []byte{0x08, 0x01, 0x02}
+	for i := 0; i < 128*4; i++ {
+		huge = append(huge, 0x00)
+	}
+	cnt := &bytes.Buffer{}
+	_ = protocol.WriteVarint32(cnt, 100000000) // 100 million entries announced, no bytes to back them
+	huge = append(huge, cnt.Bytes()...)
+	run("huge announced palette", huge, false)
+}

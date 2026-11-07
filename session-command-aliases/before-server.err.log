@@ -1,0 +1,54 @@
+time=2026-11-07T03:18:24.003-05:00 level=WARN msg="Using a temporary private key for the NetherNet listener. Players connecting over plain HTTP may see the TOFU (Trust On First Use) prompt every time the server restarts." "net origin"=nethernet
+time=2026-11-07T03:18:24.004-05:00 level=INFO msg="NetherNet listener running." addr=127.0.0.1:19400
+time=2026-11-07T03:18:24.025-05:00 level=DEBUG msg="Loading dimension..." dimension=overworld
+time=2026-11-07T03:18:24.025-05:00 level=INFO msg="Opened dimension." dimension=overworld name=World
+time=2026-11-07T03:18:24.025-05:00 level=DEBUG msg="Loading dimension..." dimension=nether
+time=2026-11-07T03:18:24.025-05:00 level=INFO msg="Opened dimension." dimension=nether name=World
+time=2026-11-07T03:18:24.025-05:00 level=DEBUG msg="Loading dimension..." dimension=end
+time=2026-11-07T03:18:24.026-05:00 level=INFO msg="Opened dimension." dimension=end name=World
+time=2026-11-07T03:18:24.026-05:00 level=INFO msg="Dragonfly server started." mc-version=1.26.60 go-version=go1.26.5 commit=""
+time=2026-11-07T03:18:25.926-05:00 level=DEBUG msg="NetherNet HTTP request." "net origin"=nethernet-http method=GET path=/v1/join raddr=127.0.0.1:57629
+time=2026-11-07T03:18:26.155-05:00 level=DEBUG msg="NetherNet HTTP request." "net origin"=nethernet-http method=POST path=/v1/join/17405431482766959467 raddr=127.0.0.1:57629
+time=2026-11-07T03:18:26.375-05:00 level=DEBUG msg="end of candidate" "net origin"=nethernet src=listener networkID=17405431482766959467 connectionID=17131654974943579355 connection.id=17131654974943579355 connection.networkID=17405431482766959467
+time=2026-11-07T03:18:26.377-05:00 level=DEBUG msg="received first candidate" "net origin"=nethernet src=listener networkID=17405431482766959467 connectionID=17131654974943579355 connection.id=17131654974943579355 connection.networkID=17405431482766959467
+time=2026-11-07T03:18:26.377-05:00 level=DEBUG msg="starting ICE transport as controlled" "net origin"=nethernet src=listener networkID=17405431482766959467 connectionID=17131654974943579355 connection.id=17131654974943579355 connection.networkID=17405431482766959467
+time=2026-11-07T03:18:26.381-05:00 level=DEBUG msg="starting DTLS transport" "net origin"=nethernet src=listener networkID=17405431482766959467 connectionID=17131654974943579355 connection.id=17131654974943579355 connection.networkID=17405431482766959467 remoteRole=auto
+time=2026-11-07T03:18:26.383-05:00 level=DEBUG msg="starting SCTP transport" "net origin"=nethernet src=listener networkID=17405431482766959467 connectionID=17131654974943579355 connection.id=17131654974943579355 connection.networkID=17405431482766959467
+time=2026-11-07T03:18:49.793-05:00 level=DEBUG msg="connection is closing with a cause" "net origin"=nethernet src=listener networkID=17405431482766959467 connectionID=17131654974943579355 connection.id=17131654974943579355 connection.networkID=17405431482766959467 cause="nethernet: SCTP transport closed"
+time=2026-11-07T03:18:52.281-05:00 level=DEBUG msg="NetherNet HTTP request." "net origin"=nethernet-http method=GET path=/v1/join raddr=127.0.0.1:62183
+time=2026-11-07T03:18:52.490-05:00 level=DEBUG msg="NetherNet HTTP request." "net origin"=nethernet-http method=POST path=/v1/join/16520795303260087656 raddr=127.0.0.1:62183
+time=2026-11-07T03:18:52.862-05:00 level=DEBUG msg="end of candidate" "net origin"=nethernet src=listener networkID=16520795303260087656 connectionID=11519192369613607680 connection.id=11519192369613607680 connection.networkID=16520795303260087656
+time=2026-11-07T03:18:52.865-05:00 level=DEBUG msg="received first candidate" "net origin"=nethernet src=listener networkID=16520795303260087656 connectionID=11519192369613607680 connection.id=11519192369613607680 connection.networkID=16520795303260087656
+time=2026-11-07T03:18:52.865-05:00 level=DEBUG msg="starting ICE transport as controlled" "net origin"=nethernet src=listener networkID=16520795303260087656 connectionID=11519192369613607680 connection.id=11519192369613607680 connection.networkID=16520795303260087656
+time=2026-11-07T03:18:52.870-05:00 level=DEBUG msg="starting DTLS transport" "net origin"=nethernet src=listener networkID=16520795303260087656 connectionID=11519192369613607680 connection.id=11519192369613607680 connection.networkID=16520795303260087656 remoteRole=auto
+time=2026-11-07T03:18:52.872-05:00 level=DEBUG msg="starting SCTP transport" "net origin"=nethernet src=listener networkID=16520795303260087656 connectionID=11519192369613607680 connection.id=11519192369613607680 connection.networkID=16520795303260087656
+time=2026-11-07T03:19:16.846-05:00 level=DEBUG msg="connection is closing with a cause" "net origin"=nethernet src=listener networkID=16520795303260087656 connectionID=11519192369613607680 connection.id=11519192369613607680 connection.networkID=16520795303260087656 cause="nethernet: SCTP transport closed"
+time=2026-11-07T03:19:19.389-05:00 level=DEBUG msg="NetherNet HTTP request." "net origin"=nethernet-http method=GET path=/v1/join raddr=127.0.0.1:58371
+time=2026-11-07T03:19:19.621-05:00 level=DEBUG msg="NetherNet HTTP request." "net origin"=nethernet-http method=POST path=/v1/join/5298436136900893615 raddr=127.0.0.1:58371
+time=2026-11-07T03:19:20.029-05:00 level=DEBUG msg="end of candidate" "net origin"=nethernet src=listener networkID=5298436136900893615 connectionID=14524465146108236005 connection.id=14524465146108236005 connection.networkID=5298436136900893615
+time=2026-11-07T03:19:20.031-05:00 level=DEBUG msg="received first candidate" "net origin"=nethernet src=listener networkID=5298436136900893615 connectionID=14524465146108236005 connection.id=14524465146108236005 connection.networkID=5298436136900893615
+time=2026-11-07T03:19:20.031-05:00 level=DEBUG msg="starting ICE transport as controlled" "net origin"=nethernet src=listener networkID=5298436136900893615 connectionID=14524465146108236005 connection.id=14524465146108236005 connection.networkID=5298436136900893615
+time=2026-11-07T03:19:20.036-05:00 level=DEBUG msg="starting DTLS transport" "net origin"=nethernet src=listener networkID=5298436136900893615 connectionID=14524465146108236005 connection.id=14524465146108236005 connection.networkID=5298436136900893615 remoteRole=auto
+time=2026-11-07T03:19:20.038-05:00 level=DEBUG msg="starting SCTP transport" "net origin"=nethernet src=listener networkID=5298436136900893615 connectionID=14524465146108236005 connection.id=14524465146108236005 connection.networkID=5298436136900893615
+time=2026-11-07T03:19:44.351-05:00 level=DEBUG msg="connection is closing with a cause" "net origin"=nethernet src=listener networkID=5298436136900893615 connectionID=14524465146108236005 connection.id=14524465146108236005 connection.networkID=5298436136900893615 cause="nethernet: SCTP transport closed"
+time=2026-11-07T03:19:47.694-05:00 level=DEBUG msg="NetherNet HTTP request." "net origin"=nethernet-http method=GET path=/v1/join raddr=127.0.0.1:61564
+time=2026-11-07T03:19:47.925-05:00 level=DEBUG msg="NetherNet HTTP request." "net origin"=nethernet-http method=POST path=/v1/join/11017182638366010096 raddr=127.0.0.1:61564
+time=2026-11-07T03:19:48.332-05:00 level=DEBUG msg="end of candidate" "net origin"=nethernet src=listener networkID=11017182638366010096 connectionID=12960921996117987717 connection.id=12960921996117987717 connection.networkID=11017182638366010096
+time=2026-11-07T03:19:48.333-05:00 level=DEBUG msg="received first candidate" "net origin"=nethernet src=listener networkID=11017182638366010096 connectionID=12960921996117987717 connection.id=12960921996117987717 connection.networkID=11017182638366010096
+time=2026-11-07T03:19:48.333-05:00 level=DEBUG msg="starting ICE transport as controlled" "net origin"=nethernet src=listener networkID=11017182638366010096 connectionID=12960921996117987717 connection.id=12960921996117987717 connection.networkID=11017182638366010096
+time=2026-11-07T03:19:48.336-05:00 level=DEBUG msg="starting DTLS transport" "net origin"=nethernet src=listener networkID=11017182638366010096 connectionID=12960921996117987717 connection.id=12960921996117987717 connection.networkID=11017182638366010096 remoteRole=auto
+time=2026-11-07T03:19:48.338-05:00 level=DEBUG msg="starting SCTP transport" "net origin"=nethernet src=listener networkID=11017182638366010096 connectionID=12960921996117987717 connection.id=12960921996117987717 connection.networkID=11017182638366010096
+time=2026-11-07T03:20:14.099-05:00 level=DEBUG msg="connection is closing with a cause" "net origin"=nethernet src=listener networkID=11017182638366010096 connectionID=12960921996117987717 connection.id=12960921996117987717 connection.networkID=11017182638366010096 cause="nethernet: SCTP transport closed"
+time=2026-11-07T03:20:15.348-05:00 level=INFO msg="Server closing..."
+time=2026-11-07T03:20:15.348-05:00 level=DEBUG msg="Disconnecting players..."
+time=2026-11-07T03:20:15.348-05:00 level=DEBUG msg="Closing player provider..."
+time=2026-11-07T03:20:15.348-05:00 level=DEBUG msg="Closing worlds..."
+time=2026-11-07T03:20:15.348-05:00 level=DEBUG msg="Saving chunks in memory to disk..." dimension=end
+time=2026-11-07T03:20:15.348-05:00 level=DEBUG msg="Updating level.dat values..." dimension=end
+time=2026-11-07T03:20:15.348-05:00 level=DEBUG msg="Saving chunks in memory to disk..." dimension=nether
+time=2026-11-07T03:20:15.348-05:00 level=DEBUG msg="Updating level.dat values..." dimension=nether
+time=2026-11-07T03:20:15.348-05:00 level=DEBUG msg="Saving chunks in memory to disk..." dimension=overworld
+time=2026-11-07T03:20:15.348-05:00 level=DEBUG msg="Updating level.dat values..." dimension=overworld
+time=2026-11-07T03:20:15.348-05:00 level=DEBUG msg="Closing provider..." dimension=overworld
+time=2026-11-07T03:20:15.350-05:00 level=DEBUG msg="Closing listeners..."
+time=2026-11-07T03:20:15.350-05:00 level=INFO msg="Server closed." uptime=1m51.3170325s

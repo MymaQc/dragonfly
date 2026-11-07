@@ -1,0 +1,2 @@
+visited 1 block(s)
+[ok] zero-length ray visited start block, no panic

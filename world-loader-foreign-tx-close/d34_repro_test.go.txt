@@ -1,0 +1,60 @@
+package world
+
+import (
+	"context"
+	"testing"
+	"time"
+)
+
+type countingViewer struct {
+	NopViewer
+	hidden int
+}
+
+func (c *countingViewer) HideEntity(Entity) { c.hidden++ }
+
+// TestD34LoaderForeignTxClose loads a loader in world A, then closes it with a
+// transaction of world B. removeViewer keys off the chunks of the world it is
+// called on, so a correct close removes the loader from world A's chunks; the
+// buggy close operates on world B and leaves the loader viewing world A.
+func TestD34LoaderForeignTxClose(t *testing.T) {
+	a := Config{}.New()
+	b := Config{}.New()
+	t.Cleanup(func() { _ = a.Close(); _ = b.Close() })
+
+	v := &countingViewer{}
+	l := NewLoader(4, a, v)
+
+	_ = a.Do(func(tx *Tx) { l.Load(tx, 100) }).Wait(context.Background())
+	time.Sleep(500 * time.Millisecond)
+
+	loadedBefore := 0
+	_ = a.Do(func(tx *Tx) {
+		for range l.loaded {
+			loadedBefore++
+		}
+	}).Wait(context.Background())
+	t.Logf("chunks loaded in world A before close: %d", loadedBefore)
+
+	remaining := 0
+	_ = b.Do(func(tx *Tx) {
+		l.Close(tx)
+		// After Close, count how many of world A's chunks still list the loader
+		// as a viewer. A correct close removes it from all of them.
+	}).Wait(context.Background())
+	time.Sleep(300 * time.Millisecond)
+	_ = a.Do(func(tx *Tx) {
+		for pos := range tx.World().chunks {
+			c := tx.World().chunks[pos]
+			for _, ld := range c.loaders {
+				if ld == l {
+					remaining++
+				}
+			}
+		}
+	}).Wait(context.Background())
+	t.Logf("world A chunks still viewed by the closed loader: %d", remaining)
+	if remaining > 0 {
+		t.Fatalf("loader still views %d chunks of world A after close with a foreign tx", remaining)
+	}
+}

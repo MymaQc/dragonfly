@@ -1,0 +1,5 @@
+[ok]    baseline valid chunk         decoded and read block ok
+[error] nil back-reference layer     decode rejected: block storage pointed to the previous storage, which blocks do not support
+[error] out-of-palette index         decode rejected: cannot read paletted storage chunk.BlockPaletteEncoding: index points outside the palette
+[error] invalid index size 7         decode rejected: cannot read paletted storage (size=7) chunk.BlockPaletteEncoding: invalid palette size
+[error] huge announced palette       decode rejected: palette entry count 100000000 exceeds the 0 bytes left

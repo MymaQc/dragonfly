@@ -1,0 +1,5 @@
+[ok]    HideHudElement   (no panic)
+[ok]    RemoveScoreboard (no panic)
+[ok]    SendForm         (no panic)
+[ok]    SendDialogue     (no panic)
+[ok]    CloseDialogue    (no panic)

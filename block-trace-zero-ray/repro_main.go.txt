@@ -1,0 +1,26 @@
+package main
+
+import (
+	"fmt"
+
+	"github.com/df-mc/dragonfly/server/block/cube"
+	"github.com/df-mc/dragonfly/server/block/cube/trace"
+	"github.com/go-gl/mathgl/mgl64"
+)
+
+func main() {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Printf("[PANIC] zero-length ray TraverseBlocks: %v\n", r)
+			return
+		}
+		fmt.Println("[ok] zero-length ray visited start block, no panic")
+	}()
+	v := mgl64.Vec3{10.5, 64, 10.5}
+	visited := 0
+	trace.TraverseBlocks(v, v, func(pos cube.Pos) bool {
+		visited++
+		return true
+	})
+	fmt.Printf("visited %d block(s)\n", visited)
+}

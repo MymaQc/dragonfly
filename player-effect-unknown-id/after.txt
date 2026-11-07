@@ -1,0 +1,5 @@
+=== RUN   TestD17UnknownEffectID
+    d17_repro_test.go:7: returned 0 effect(s) for one unknown id
+    d17_repro_test.go:13: no zero-value effects present
+--- PASS: TestD17UnknownEffectID (0.00s)
+PASS

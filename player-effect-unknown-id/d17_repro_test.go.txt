@@ -1,0 +1,14 @@
+package playerdb
+
+import "testing"
+
+func TestD17UnknownEffectID(t *testing.T) {
+	effects := dataToEffects([]jsonEffect{{ID: 9999, Level: 1}})
+	t.Logf("returned %d effect(s) for one unknown id", len(effects))
+	for i, e := range effects {
+		if e.Type() == nil {
+			t.Fatalf("effect %d has a nil Type (zero-value effect kept for unknown id)", i)
+		}
+	}
+	t.Log("no zero-value effects present")
+}

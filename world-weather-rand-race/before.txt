@@ -1,0 +1,32 @@
+==================
+WARNING: DATA RACE
+Read at 0x00c0017ffb38 by goroutine 47:
+  math/rand/v2.(*PCG).next()
+      C:/Program Files/Go/src/math/rand/v2/pcg.go:76 +0x3a
+  math/rand/v2.(*PCG).Uint64()
+      C:/Program Files/Go/src/math/rand/v2/pcg.go:87 +0x35
+  math/rand/v2.(*Rand).Uint64()
+      C:/Program Files/Go/src/math/rand/v2/rand.go:51 +0x56
+  math/rand/v2.(*Rand).uint64n()
+      C:/Program Files/Go/src/math/rand/v2/rand.go:119 +0x57
+  math/rand/v2.(*Rand).IntN()
+      C:/Program Files/Go/src/math/rand/v2/rand.go:195 +0x110
+  github.com/df-mc/dragonfly/server/world.weather.StopRaining()
+      <work>/wt/upstream-master/server/world/weather.go:105 +0xe6
+  main.main.func3()
+      <work>/repro/d19/main.go:34 +0x84
+
+Previous write at 0x00c0017ffb38 by goroutine 43:
+  math/rand/v2.(*PCG).next()
+      C:/Program Files/Go/src/math/rand/v2/pcg.go:80 +0xb4
+  math/rand/v2.(*PCG).Uint64()
+      C:/Program Files/Go/src/math/rand/v2/pcg.go:87 +0x35
+  math/rand/v2.(*Rand).Uint64()
+      C:/Program Files/Go/src/math/rand/v2/rand.go:51 +0x63
+  github.com/df-mc/dragonfly/server/world.(*randUint4).uint4()
+      <work>/wt/upstream-master/server/world/tick.go:271 +0x69
+  github.com/df-mc/dragonfly/server/world.ticker.tickBlocksRandomly()
+      <work>/wt/upstream-master/server/world/tick.go:163 +0xb85
+  github.com/df-mc/dragonfly/server/world.ticker.tick()
+      <work>/wt/upstream-master/server/world/tick.go:102 +0x907
+  github.com/df-mc/dragonfly/server/world.ticker.tick-fm()

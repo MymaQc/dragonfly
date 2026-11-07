@@ -1,0 +1,98 @@
+package main
+
+import (
+	"fmt"
+
+	"github.com/df-mc/dragonfly/server/block"
+	"github.com/df-mc/dragonfly/server/item"
+)
+
+// run executes fn and reports whether it panicked, with the recovered value.
+func run(name string, fn func()) {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Printf("[PANIC] %-28s %v\n", name, r)
+			return
+		}
+		fmt.Printf("[ok]    %-28s (no panic)\n", name)
+	}()
+	fn()
+}
+
+func main() {
+	// D20: written book page not a compound with text.
+	run("D20 book page not compound", func() {
+		var w item.WrittenBook
+		w.DecodeNBT(map[string]any{"pages": []any{"not a compound"}})
+	})
+	// D20: written book page compound but text not a string.
+	run("D20 book page text wrong type", func() {
+		var w item.WrittenBook
+		w.DecodeNBT(map[string]any{"pages": []any{map[string]any{"text": int32(5)}}})
+	})
+	// D20: firework explosion FireworkType field missing.
+	run("D20 firework explosion missing", func() {
+		var f item.Firework
+		f.DecodeNBT(map[string]any{"Fireworks": map[string]any{
+			"Explosions": []any{map[string]any{}},
+		}})
+	})
+	// D20: firework rocket Explosions entry not a compound.
+	run("D20 firework explosion not compound", func() {
+		var f item.Firework
+		f.DecodeNBT(map[string]any{"Fireworks": map[string]any{
+			"Explosions": []any{"not a compound"},
+		}})
+	})
+	// D20: firework star FireworksItem explosion with wrong field type.
+	run("D20 firework star bad field", func() {
+		var f item.FireworkStar
+		f.DecodeNBT(map[string]any{"FireworksItem": map[string]any{
+			"FireworkType": "wrong",
+		}})
+	})
+
+	// D26: beacon Primary is a non-lasting effect (InstantHealth = 6).
+	run("D26 beacon non-lasting primary", func() {
+		var b block.Beacon
+		b.DecodeNBT(map[string]any{"Primary": int32(6)})
+	})
+
+	// D30: bed colour > 15.
+	run("D30 bed colour 16", func() {
+		var b block.Bed
+		b.DecodeNBT(map[string]any{"color": uint8(16)})
+	})
+
+	// D31: banner layer not a compound.
+	run("D31 banner layer not compound", func() {
+		var b block.Banner
+		b.DecodeNBT(map[string]any{"Patterns": []any{"not a compound"}})
+	})
+	// D31: banner unknown pattern id.
+	run("D31 banner unknown pattern", func() {
+		var b block.Banner
+		b.DecodeNBT(map[string]any{"Patterns": []any{map[string]any{"Pattern": "zzz"}}})
+	})
+	// D31: decorated pot sherd not a string.
+	run("D31 pot sherd not string", func() {
+		var p block.DecoratedPot
+		p.DecodeNBT(map[string]any{"sherds": []any{int32(3)}})
+	})
+	// D31: decorated pot unknown item.
+	run("D31 pot sherd unknown item", func() {
+		var p block.DecoratedPot
+		p.DecodeNBT(map[string]any{"sherds": []any{"minecraft:zzz"}})
+	})
+	// D31: decorated pot item that is not a pot decoration.
+	run("D31 pot sherd not decoration", func() {
+		var p block.DecoratedPot
+		p.DecodeNBT(map[string]any{"sherds": []any{"minecraft:stone"}})
+	})
+	// D31: skull type 7..254 -> String panics on encode.
+	run("D31 skull type 7 encode", func() {
+		var s block.Skull
+		s = s.DecodeNBT(map[string]any{"SkullType": uint8(7)}).(block.Skull)
+		_, _ = s.EncodeBlock()
+	})
+}

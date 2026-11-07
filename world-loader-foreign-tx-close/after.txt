@@ -1,0 +1,5 @@
+=== RUN   TestD34LoaderForeignTxClose
+    d34_repro_test.go:37: chunks loaded in world A before close: 69
+    d34_repro_test.go:56: world A chunks still viewed by the closed loader: 0
+--- PASS: TestD34LoaderForeignTxClose (0.81s)
+PASS

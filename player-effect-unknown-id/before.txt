@@ -1,0 +1,7 @@
+=== RUN   TestD17UnknownEffectID
+    d17_repro_test.go:10: returned 1 effect(s) for one unknown id
+    d17_repro_test.go:13: effect 0 has a nil Type (zero-value effect kept for unknown id)
+--- FAIL: TestD17UnknownEffectID (0.00s)
+FAIL
+FAIL	github.com/df-mc/dragonfly/server/player/playerdb	0.215s
+FAIL

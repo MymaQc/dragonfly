@@ -1,0 +1,4 @@
+=== RUN   TestD28SmithingEmptySlotMatches
+    d28_repro_test.go:20: empty slot matches a non-empty expected smithing ingredient: handleSmithing would accept it
+--- PASS: TestD28SmithingEmptySlotMatches (0.00s)
+PASS

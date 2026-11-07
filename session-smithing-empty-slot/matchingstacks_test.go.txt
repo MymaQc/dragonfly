@@ -1,0 +1,21 @@
+package session
+
+import (
+	"testing"
+
+	"github.com/df-mc/dragonfly/server/item"
+	
+)
+
+// TestD28SmithingEmptySlotMatches shows that matchingStacks, used by
+// handleSmithing to check the input, material and template slots, treats an
+// empty slot as matching a non-empty expected item. A modified client can thus
+// send a smithing request with empty table slots and still pass every check.
+func TestD28SmithingEmptySlotMatches(t *testing.T) {
+	expected := item.NewStack(item.NetheriteIngot{}, 1)
+	var empty item.Stack // an empty table slot
+	if !matchingStacks(empty, expected) {
+		t.Fatal("empty slot does NOT match expected item (bug absent)")
+	}
+	t.Log("empty slot matches a non-empty expected smithing ingredient: handleSmithing would accept it")
+}

@@ -1,0 +1,8 @@
+[ok]    D26 beacon non-lasting primary (no panic)
+[ok]    D30 bed colour 16            (no panic)
+[ok]    D31 banner layer not compound (no panic)
+[ok]    D31 banner unknown pattern   (no panic)
+[ok]    D31 pot sherd not string     (no panic)
+[ok]    D31 pot sherd unknown item   (no panic)
+[ok]    D31 pot sherd not decoration (no panic)
+[ok]    D31 skull type 7 encode      (no panic)

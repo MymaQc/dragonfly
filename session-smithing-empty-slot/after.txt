@@ -1,0 +1,8 @@
+With the fix applied, handleSmithing guards each table slot with
+input.Empty()/material.Empty()/template.Empty() before the matchingStacks
+check, so a request with an empty input, material or template slot is
+rejected with "input item is not the same as expected input" (resp.
+material/template), and no product is created. The matchingStacks helper
+itself is unchanged (it is shared with the crafting grid, where an empty
+slot legitimately matches an empty expected ingredient); the root-cause
+test above still shows matchingStacks(empty, nonEmpty) == true.

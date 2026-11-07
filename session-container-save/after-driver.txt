@@ -1,0 +1,19 @@
+INFO run folder <work>\runs\20261107-032459-final-d23-fix
+INFO server1-place listening, pid 28848, scenario d23-place
+INFO server1: {"chest":{"block":{"go":"block.Chest","name":"minecraft:chest","properties":{"minecraft:cardinal_direction":"east"}},"items":[]},"chunk":[-1,0],"event":"chest-placed","time":1794039900651}
+INFO server1-place stopped (stopped event seen)
+INFO server2-fill listening, pid 21600, scenario d23
+INFO server2 loaded: {"chest":{"block":{"go":"block.Chest","name":"minecraft:chest","properties":{"minecraft:cardinal_direction":"east"}},"items":[]},"chunk":[-1,0],"event":"chest-loaded","time":1794039901625}
+INFO Cinnabar started hidden, pid 44196
+INFO chest opened: screen container, 27 slots
+INFO diamonds in the chest, as the client sees it: 64
+INFO screenshot 01-server2-chest-filled.png
+INFO server2-fill stopped (stopped event seen)
+INFO server2 before closing: {"chest":{"block":{"go":"block.Chest","name":"minecraft:chest","properties":{"minecraft:cardinal_direction":"east"}},"items":[{"count":64,"go":"item.Diamond{}","meta":0,"name":"minecraft:diamond"}]},"event":"chest-before-close","time":1794039931757}
+INFO server3-reopen listening, pid 23476, scenario d23-check
+INFO server3 loaded: {"chest":{"block":{"go":"block.Chest","name":"minecraft:chest","properties":{"minecraft:cardinal_direction":"east"}},"items":[{"count":64,"go":"item.Diamond{}","meta":0,"name":"minecraft:diamond"}]},"chunk":[-1,0],"event":"chest-loaded","time":1794039932282}
+INFO Cinnabar started hidden, pid 10656
+INFO diamonds in the chest after the restart, as the client sees it: 64
+INFO screenshot 01-server3-chest-reopened.png
+RESULT DONE (<work>\runs\20261107-032459-final-d23-fix)
+INFO server3-reopen stopped (stopped event seen)
