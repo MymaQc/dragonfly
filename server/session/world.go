@@ -1191,6 +1191,7 @@ func (s *Session) OpenBlockContainer(pos cube.Pos, tx *world.Tx) {
 		inv := inventory.New(1, nil)
 		s.openedWindow.Store(inv)
 		s.openedPos.Store(&pos)
+		s.openedWorld.Store(tx.World())
 	}
 
 	var containerType byte
@@ -1239,6 +1240,7 @@ func (s *Session) openNormalContainer(b block.Container, pos cube.Pos, tx *world
 	inv := b.Inventory(tx, pos)
 	s.openedWindow.Store(inv)
 	s.openedPos.Store(&pos)
+	s.openedWorld.Store(tx.World())
 
 	var containerType byte
 	switch b.(type) {
