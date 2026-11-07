@@ -22,28 +22,30 @@ func effectsToData(effects []effect.Effect) []jsonEffect {
 }
 
 func dataToEffects(data []jsonEffect) []effect.Effect {
-	effects := make([]effect.Effect, len(data))
-	for i, d := range data {
+	effects := make([]effect.Effect, 0, len(data))
+	for _, d := range data {
 		e, ok := effect.ByID(d.ID)
 		if !ok {
 			continue
 		}
 		switch eff := e.(type) {
 		case effect.LastingType:
+			var lasting effect.Effect
 			switch {
 			case d.Ambient:
-				effects[i] = effect.NewAmbient(eff, d.Level, d.Duration)
+				lasting = effect.NewAmbient(eff, d.Level, d.Duration)
 			case d.Infinite:
-				effects[i] = effect.NewInfinite(eff, d.Level)
+				lasting = effect.NewInfinite(eff, d.Level)
 			default:
-				effects[i] = effect.New(eff, d.Level, d.Duration)
+				lasting = effect.New(eff, d.Level, d.Duration)
 			}
 
 			if d.ParticlesHidden {
-				effects[i] = effects[i].WithoutParticles()
+				lasting = lasting.WithoutParticles()
 			}
+			effects = append(effects, lasting)
 		default:
-			effects[i] = effect.NewInstant(eff, d.Level)
+			effects = append(effects, effect.NewInstant(eff, d.Level))
 		}
 	}
 	return effects
