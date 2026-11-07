@@ -112,6 +112,16 @@ func (p paletteSize) padded() bool {
 	return p == 3 || p == 5 || p == 6
 }
 
+// valid reports whether p is one of the palette sizes the format permits.
+func (p paletteSize) valid() bool {
+	for _, size := range sizes {
+		if p == size {
+			return true
+		}
+	}
+	return false
+}
+
 // paletteSizeFor finds a suitable paletteSize for the amount of values passed n.
 func paletteSizeFor(n int) paletteSize {
 	for _, size := range sizes {

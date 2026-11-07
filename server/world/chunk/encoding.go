@@ -210,6 +210,12 @@ func (networkEncoding) decodePalette(buf *bytes.Buffer, blockSize paletteSize, _
 		if paletteCount <= 0 {
 			return nil, fmt.Errorf("invalid palette entry count %v", paletteCount)
 		}
+		if int(paletteCount) > buf.Len() {
+			// Each entry is at least one byte, so a count larger than the bytes
+			// left cannot be backed by data. Reject it before allocating, rather
+			// than reserving space for a count a third party made up.
+			return nil, fmt.Errorf("palette entry count %v exceeds the %v bytes left", paletteCount, buf.Len())
+		}
 	}
 
 	blocks, temp := make([]uint32, paletteCount), int32(0)
