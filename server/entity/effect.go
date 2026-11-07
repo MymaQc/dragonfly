@@ -107,7 +107,13 @@ func (m *EffectManager) Tick(entity Living, tx *world.Tx) {
 			continue
 		}
 		eff.Type().Apply(entity, eff)
-		m.effects[i] = eff.TickDuration()
+		// Applying the effect may remove it, or replace it with a different
+		// effect, so only advance its duration if the same effect is still
+		// present. Writing it back unconditionally would re-add a removed
+		// effect or undo a replacement.
+		if cur, ok := m.effects[i]; ok && cur == eff {
+			m.effects[i] = eff.TickDuration()
+		}
 	}
 
 	if update {
