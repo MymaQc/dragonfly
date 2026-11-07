@@ -248,7 +248,9 @@ func (b Bed) EncodeNBT() map[string]interface{} {
 
 // DecodeNBT ...
 func (b Bed) DecodeNBT(data map[string]interface{}) interface{} {
-	b.Colour = item.Colours()[nbtconv.Uint8(data, "color")]
+	if colour := int(nbtconv.Uint8(data, "color")); colour < len(item.Colours()) {
+		b.Colour = item.Colours()[colour]
+	}
 	return b
 }
 
