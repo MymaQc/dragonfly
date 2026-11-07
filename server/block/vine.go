@@ -50,7 +50,7 @@ func (Vines) FlammabilityInfo() FlammabilityInfo {
 func (v Vines) BreakInfo() BreakInfo {
 	return newBreakInfo(0.2, func(t item.Tool) bool {
 		return t.ToolType() == item.TypeShears
-	}, axeEffective, oneOf(v))
+	}, axeEffective, oneOf(Vines{}))
 }
 
 // EntityInside ...

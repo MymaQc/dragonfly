@@ -56,7 +56,7 @@ func (d DoubleTallGrass) FlammabilityInfo() FlammabilityInfo {
 
 // BreakInfo ...
 func (d DoubleTallGrass) BreakInfo() BreakInfo {
-	return newBreakInfo(0, alwaysHarvestable, nothingEffective, grassDrops(d))
+	return newBreakInfo(0, alwaysHarvestable, nothingEffective, grassDrops(DoubleTallGrass{Type: d.Type}))
 }
 
 // CompostChance ...

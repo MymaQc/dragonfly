@@ -56,9 +56,9 @@ func (n NetherWart) NeighbourUpdateTick(pos, _ cube.Pos, tx *world.Tx) {
 func (n NetherWart) BreakInfo() BreakInfo {
 	return newBreakInfo(0, alwaysHarvestable, nothingEffective, func(t item.Tool, enchantments []item.Enchantment) []item.Stack {
 		if n.Age < 3 {
-			return []item.Stack{item.NewStack(n, 1)}
+			return []item.Stack{item.NewStack(NetherWart{}, 1)}
 		}
-		return []item.Stack{item.NewStack(n, fortuneDiscreteCount(2, 4, 7, enchantments))}
+		return []item.Stack{item.NewStack(NetherWart{}, fortuneDiscreteCount(2, 4, 7, enchantments))}
 	})
 }
 
