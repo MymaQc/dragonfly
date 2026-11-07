@@ -82,8 +82,10 @@ func BuildAvailableCommands(
 
 		aliasesIndex := uint32(math.MaxUint32)
 		if len(c.Aliases()) > 0 {
-			aliasesIndex = uint32(len(enumIndices))
-			enumIndices[c.Name()+"Aliases"] = aliasesIndex
+			// The aliases enum is not added to enumIndices: a parameter enum
+			// with the same type would otherwise share it, and the indices of
+			// later aliases enums would no longer match their position.
+			aliasesIndex = uint32(len(enums))
 			enums = append(enums, commandEnum{Type: c.Name() + "Aliases", Options: c.Aliases()})
 		}
 
