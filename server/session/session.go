@@ -77,6 +77,7 @@ type Session struct {
 	openedContainerID              atomic.Uint32
 	openedWindow                   atomic.Pointer[inventory.Inventory]
 	openedPos                      atomic.Pointer[cube.Pos]
+	openedWorld                    atomic.Pointer[world.World]
 	swingingArm                    atomic.Bool
 	changingSlot                   atomic.Bool
 	changingDimension              atomic.Bool
@@ -509,6 +510,8 @@ func (s *Session) sendChunks(tx *world.Tx, c Controllable) {
 
 // handleWorldSwitch handles the player of the Session switching worlds.
 func (s *Session) handleWorldSwitch(w *world.World, tx *world.Tx, c Controllable) {
+	// A container opened in the world left behind can no longer be used.
+	s.closeCurrentContainer(tx, false)
 	if s.conn.ClientCacheEnabled() {
 		s.blobMu.Lock()
 		s.blobs = map[uint64][]byte{}

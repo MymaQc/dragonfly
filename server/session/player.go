@@ -12,6 +12,7 @@ import (
 	_ "unsafe" // Imported for compiler directives.
 
 	"github.com/df-mc/dragonfly/server/block"
+	"github.com/df-mc/dragonfly/server/block/cube"
 	"github.com/df-mc/dragonfly/server/entity"
 	"github.com/df-mc/dragonfly/server/entity/effect"
 	"github.com/df-mc/dragonfly/server/item"
@@ -72,6 +73,20 @@ func (s *Session) closeCurrentContainer(tx *world.Tx, clientRequested bool) {
 	}
 
 	pos := *s.openedPos.Load()
+	if w := s.openedWorld.Load(); w != nil && w != tx.World() {
+		// The player left the world of the container while it was open. The
+		// container is only accessed in a transaction of its own world.
+		w.Do(func(tx *world.Tx) {
+			s.removeContainerViewer(tx, pos)
+		})
+		return
+	}
+	s.removeContainerViewer(tx, pos)
+}
+
+// removeContainerViewer removes the session as a viewer of the container at
+// the position passed.
+func (s *Session) removeContainerViewer(tx *world.Tx, pos cube.Pos) {
 	b := tx.Block(pos)
 	if container, ok := b.(block.Container); ok {
 		container.RemoveViewer(s, tx, pos)
@@ -305,7 +320,9 @@ func (s *Session) invByID(id int32, tx *world.Tx) (*inventory.Inventory, bool) {
 		// Armour inventory.
 		return s.armour.Inventory(), true
 	default:
-		if !s.containerOpened.Load() {
+		if !s.containerOpened.Load() || s.openedWorld.Load() != tx.World() {
+			// No container is open, or it was opened in a world the player
+			// has since left: its inventory belongs to that world.
 			return nil, false
 		}
 		switch id {
