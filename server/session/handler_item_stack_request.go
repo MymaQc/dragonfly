@@ -3,6 +3,7 @@ package session
 import (
 	"fmt"
 	"github.com/df-mc/dragonfly/server/block"
+	"github.com/df-mc/dragonfly/server/block/cube"
 	"github.com/df-mc/dragonfly/server/entity"
 	"github.com/df-mc/dragonfly/server/event"
 	"github.com/df-mc/dragonfly/server/item"
@@ -428,6 +429,9 @@ func (h *ItemStackRequestHandler) setItemInSlot(slot protocol.StackRequestSlotIn
 
 	before, _ := inv.Item(sl)
 	_ = inv.SetItem(sl, i)
+	if inv == s.openedWindow.Load() && s.containerOpened.Load() {
+		s.markContainerChanged(tx)
+	}
 
 	respSlot := protocol.StackResponseSlotInfo{
 		Slot:                 slot.Slot,
@@ -454,6 +458,31 @@ func (h *ItemStackRequestHandler) setItemInSlot(slot protocol.StackRequestSlotIn
 	h.responseChanges[h.currentRequest][inv][slot.Slot] = responseChange{
 		id:        respSlot.StackNetworkID,
 		timestamp: h.current,
+	}
+}
+
+// markContainerChanged marks the block of the container opened as changed, so
+// that the change of its inventory is saved with its chunk. Changing the
+// inventory alone does not mark the chunk, and an otherwise unchanged chunk is
+// not saved.
+func (s *Session) markContainerChanged(tx *world.Tx) {
+	pos := *s.openedPos.Load()
+	b := tx.Block(pos)
+	if _, ok := b.(block.Container); !ok {
+		return
+	}
+	tx.SetBlockEntity(pos, b)
+
+	c, ok := b.(block.Chest)
+	if !ok || !c.Paired() {
+		return
+	}
+	// Each half of a double chest saves its own part of the inventory, and the
+	// other half may be in another chunk.
+	for _, side := range []cube.Pos{pos.Side(c.Facing.RotateLeft().Face()), pos.Side(c.Facing.RotateRight().Face())} {
+		if pair, ok := tx.Block(side).(block.Chest); ok && pair.Paired() && pair.Facing == c.Facing {
+			tx.SetBlockEntity(side, pair)
+		}
 	}
 }
 
